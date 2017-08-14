@@ -57,11 +57,11 @@ if($_GET['cookie']) {
         $table='token';
         $layinfo = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM ".$table." ORDER BY RAND() LIMIT 0,100");
         while ($row = mysqli_fetch_assoc($layinfo)){
-        $matoken= $row['token'];
+        $matoken= $row['access_token'];
         $check = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$matoken),true);
         if(!$check['id']){
-        $idfb= $row['idfb'];    
-        $name = $row['ten'];
+        $idfb= $row['user_id'];    
+        $name = $row['name'];
         mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM ".$table." WHERE access_token ='".$matoken."'");
         $messages='Chào Bạn '.$name.'. Token Cài Đặt Tại Nghia•ML Đã Hết Hạn. Vui Lòng Truy Cập Nghia•ML Để Cài Đặt Lại Token. Thân <3.';
         $link='https://m.facebook.com/messages/send';
