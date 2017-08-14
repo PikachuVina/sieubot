@@ -1,6 +1,6 @@
 <?php
 include'../system/head.php';
-$info = mysql_fetch_array(mysql_query("SELECT * FROM `congtacvien` WHERE `id` = '".$_SESSION[id]."' LIMIT 1"));
+$info = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `congtacvien` WHERE `id` = '".$_SESSION[id]."' LIMIT 1"));
 if(!$_SESSION['admin']) {
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 die('<script>alert("Không Phận Sự Miễn Vào"); </script>');
@@ -14,7 +14,7 @@ exit;
 
 <?php
 
-mysql_query("CREATE TABLE IF NOT EXISTS `idvip` (
+mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `idvip` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `id_user` varchar(32) NOT NULL,
       `limitlike` varchar(32) NOT NULL,      
@@ -25,7 +25,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS `idvip` (
       PRIMARY KEY (`id`)
       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
    ");
-mysql_query("CREATE TABLE IF NOT EXISTS `log_gioihan` (
+mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `log_gioihan` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `id_user` varchar(32) NOT NULL,
       `id_stt` varchar(32) NOT NULL, 
@@ -35,7 +35,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS `log_gioihan` (
 echo'<div class="content">';
 echo'<div class="card"><div class="header">
 <h4 class="title">Quản Lý VIP Like</h4>
-</div>';	
+</div>';    
 echo'<div class="content">';  
 echo'<form action ="" method="POST">';
 echo 'ID_USER:<br/><input name="id_user" class="form-control"/><br/>';
@@ -72,7 +72,7 @@ echo'</div>';
 
 if($_POST['id_user'] && $_POST['limitlike'] && $_POST['liketrungbinh'] && $_POST['limitpost'] )
 {
-$tong = mysql_result(mysql_query("SELECT COUNT(*) FROM `idvip` WHERE `id_user` ='" . $_POST['id_user'] . "'"), 0);	
+$tong = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `idvip` WHERE `id_user` ='" . $_POST['id_user'] . "'"),  0);    
 
 if($_POST['tgvip'] == 30){
 $times = time() + 2592000;
@@ -89,29 +89,29 @@ $times = time() + 30879000;
 if($_POST['botcx'] == 'dongy'){
 
 if($tong == 1) {
-	mysql_query(
+    mysqli_query($GLOBALS["___BMN_2312"], 
          "UPDATE 
             idvip
          SET
-            `limitlike` = '" . mysql_real_escape_string($_POST['limitlike']) . "',
-            `liketrungbinh` = '" . mysql_real_escape_string($_POST['liketrungbinh']) . "',
-            `limitpost` = '" . mysql_real_escape_string($_POST['limitpost']) . "',
-            `camxuc` = '" . mysql_real_escape_string($_POST['camxuc']) . "',
+            `limitlike` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitlike']) . "',
+            `liketrungbinh` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['liketrungbinh']) . "',
+            `limitpost` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitpost']) . "',
+            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['camxuc']) . "',
             `tgvip` = '" . $times . "'
-			WHERE
-            `id_user` = '" . mysql_real_escape_string($_POST['id_user']) . "'
+            WHERE
+            `id_user` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['id_user']) . "'
       ");
 echo '<div class="alert alert-warning"> ID Đã Tồn Tại Trên Hệ Thống - đã Update Lượng Like + POST Do Bạn Cung Cấp! BOT: '.$_POST['camxuc'].' </div>';
 } else {
-mysql_query(
+mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             idvip
          SET
-            `id_user` = '" . mysql_real_escape_string($_POST['id_user']) . "',
-            `limitlike` = '" . mysql_real_escape_string($_POST['limitlike']) . "',
-            `liketrungbinh` = '" . mysql_real_escape_string($_POST['liketrungbinh']) . "',
-            `limitpost` = '" . mysql_real_escape_string($_POST['limitpost']) . "',
-            `camxuc` = '" . mysql_real_escape_string($_POST['camxuc']) . "',
+            `id_user` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['id_user']) . "',
+            `limitlike` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitlike']) . "',
+            `liketrungbinh` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['liketrungbinh']) . "',
+            `limitpost` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitpost']) . "',
+            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['camxuc']) . "',
             `tgvip` = '" . $times . "'
       ");
 echo '<div class="alert alert-success"> Đã Thêm ID VIP Thành Công! BOT: '.$_POST['camxuc'].'</div>';
@@ -122,31 +122,31 @@ echo '<div class="alert alert-success"> Đã Thêm ID VIP Thành Công! BOT: '.$
 
 if($tong == 1)
 {
-	mysql_query(
+    mysqli_query($GLOBALS["___BMN_2312"], 
          "UPDATE 
             idvip
          SET
-            `limitlike` = '" . mysql_real_escape_string($_POST['limitlike']) . "',
-            `liketrungbinh` = '" . mysql_real_escape_string($_POST['liketrungbinh']) . "',
-            `limitpost` = '" . mysql_real_escape_string($_POST['limitpost']) . "',
+            `limitlike` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitlike']) . "',
+            `liketrungbinh` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['liketrungbinh']) . "',
+            `limitpost` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitpost']) . "',
             `tgvip` = '" . $times . "'
-			WHERE
-            `id_user` = '" . mysql_real_escape_string($_POST['id_user']) . "'
+            WHERE
+            `id_user` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['id_user']) . "'
       ");
 echo '<div class="alert alert-warning"> ID Đã Tồn Tại Trên Hệ Thống - đã Update Lượng Like + POST Do Bạn Cung Cấp! </div>';
 }
 else
 {
-	
+    
 
-mysql_query(
+mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             idvip
          SET
-            `id_user` = '" . mysql_real_escape_string($_POST['id_user']) . "',
-            `limitlike` = '" . mysql_real_escape_string($_POST['limitlike']) . "',
-            `liketrungbinh` = '" . mysql_real_escape_string($_POST['liketrungbinh']) . "',
-            `limitpost` = '" . mysql_real_escape_string($_POST['limitpost']) . "',
+            `id_user` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['id_user']) . "',
+            `limitlike` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitlike']) . "',
+            `liketrungbinh` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['liketrungbinh']) . "',
+            `limitpost` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['limitpost']) . "',
             `tgvip` = '" . $times . "'
       ");
 echo '<div class="alert alert-success"> Đã Thêm ID VIP Thành Công! </div>';
@@ -158,20 +158,20 @@ echo '<div class="alert alert-success"> Đã Thêm ID VIP Thành Công! </div>';
 ?>
 </div>
 <div class="content">
-	<div class="card"><div class="header">
-		<h4 class="title"> Quản Lý Cộng Tác Viên</h4>
-	</div>
+    <div class="card"><div class="header">
+        <h4 class="title"> Quản Lý Cộng Tác Viên</h4>
+    </div>
   
       <div class="content">
-	  <a class="list-group-item" href="/panelvip/congtacvien.php"><i class="fa fa-plus-square"></i> Thêm Cộng Tác Viên cho hệ thống! </a>
-	  <a class="list-group-item" href="/panelvip/quanlycmt.php"><i class="fa fa-plus-square"></i> Quản Lý Bot Bình Luận của Thành Viên </a>
-	  </div>
-</div>	  
+      <a class="list-group-item" href="/panelvip/congtacvien.php"><i class="fa fa-plus-square"></i> Thêm Cộng Tác Viên cho hệ thống! </a>
+      <a class="list-group-item" href="/panelvip/quanlycmt.php"><i class="fa fa-plus-square"></i> Quản Lý Bot Bình Luận của Thành Viên </a>
+      </div>
+</div>      
 
 <div class="content">
-	<div class="card"><div class="header">
-		<h4 class="title"> Danh Sách Cộng Tác Viên</h4>
-	</div>
+    <div class="card"><div class="header">
+        <h4 class="title"> Danh Sách Cộng Tác Viên</h4>
+    </div>
   
       <div class="content">
 <table class="table">
@@ -185,18 +185,18 @@ echo '<div class="alert alert-success"> Đã Thêm ID VIP Thành Công! </div>';
     </thead>
     <tbody>
     <?php
-$infongdung = mysql_query("SELECT * FROM `congtacvien`");
-while ($gettomdz = mysql_fetch_array($infongdung)){
+$infongdung = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `congtacvien`");
+while ($gettomdz = mysqli_fetch_array($infongdung)){
     ?>
 
     <tr>
         <td><?php echo $gettomdz[id]; ?></td>
         <td><?php echo $gettomdz[fullname]; ?></td>
         <?php if($gettomdz[khoa] == 0) { ?>
-		<td><a href="?khoa=<?php echo $gettomdz[id]; ?>">Khóa Tài Khoản</a></td>
-		<?php } else { ?>
-		<td><a href="?mokhoa=<?php echo $gettomdz[id]; ?>">Mở Khóa Tài Khoản</a></td>
-		<?php } ?>
+        <td><a href="?khoa=<?php echo $gettomdz[id]; ?>">Khóa Tài Khoản</a></td>
+        <?php } else { ?>
+        <td><a href="?mokhoa=<?php echo $gettomdz[id]; ?>">Mở Khóa Tài Khoản</a></td>
+        <?php } ?>
         
       </tr>
 
@@ -210,9 +210,9 @@ while ($gettomdz = mysql_fetch_array($infongdung)){
 
 
 <div class="content">
-	<div class="card"><div class="header">
-		<h4 class="title"> Quản Lý VIP Mem</h4>
-	</div>
+    <div class="card"><div class="header">
+        <h4 class="title"> Quản Lý VIP Mem</h4>
+    </div>
   
       <div class="panel-body">
 <table class="table">
@@ -226,14 +226,14 @@ while ($gettomdz = mysql_fetch_array($infongdung)){
     </thead>
     <tbody>
     <?php
-$infongdung = mysql_query("SELECT * FROM `idvip`");
-while ($gettomdz = mysql_fetch_array($infongdung)){
+$infongdung = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `idvip`");
+while ($gettomdz = mysqli_fetch_array($infongdung)){
     ?>
 
     <tr>
         <td><?php echo $gettomdz[id]; ?></td>
         <td><?php echo $gettomdz[id_user]; ?></td>
-		<td><a href="?xoa=<?php echo $gettomdz[id]; ?>">Xóa Tài Khoản</a></td>
+        <td><a href="?xoa=<?php echo $gettomdz[id]; ?>">Xóa Tài Khoản</a></td>
 
         
       </tr>
@@ -247,8 +247,8 @@ while ($gettomdz = mysql_fetch_array($infongdung)){
 
 <?php
 if($_GET[xoa]){
-$infongdung = mysql_fetch_array(mysql_query("SELECT * FROM `idvip` WHERE `id` = '".$_GET[xoa]."' LIMIT 1"));
-mysql_query("DELETE FROM `idvip` WHERE id='" . mysql_real_escape_string($_GET[xoa]) . "'");
+$infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `idvip` WHERE `id` = '".$_GET[xoa]."' LIMIT 1"));
+mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `idvip` WHERE id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET[xoa]) . "'");
 echo '<meta http-equiv=refresh content="0; URL=/panelvip/index.php">';
 die('<script>alert("Khóa Tài Khoản Thành Công!"); </script>');
 exit;
@@ -256,15 +256,15 @@ exit;
 
 
 if($_GET[khoa]){
-$infongdung = mysql_fetch_array(mysql_query("SELECT * FROM `congtacvien` WHERE `id` = '".$_GET[khoa]."' LIMIT 1"));
-mysql_query("UPDATE congtacvien SET `khoa` = '1' WHERE id = '" . mysql_real_escape_string($_GET[khoa]) . "'");
+$infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `congtacvien` WHERE `id` = '".$_GET[khoa]."' LIMIT 1"));
+mysqli_query($GLOBALS["___BMN_2312"], "UPDATE congtacvien SET `khoa` = '1' WHERE id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET[khoa]) . "'");
 echo '<meta http-equiv=refresh content="0; URL=/panelvip/index.php">';
 die('<script>alert("Khóa Tài Khoản Thành Công!"); </script>');
 exit;
 }
 if($_GET[mokhoa]){
-$infongdung = mysql_fetch_array(mysql_query("SELECT * FROM `congtacvien` WHERE `id` = '".$_GET[mokhoa]."' LIMIT 1"));
-mysql_query("UPDATE congtacvien SET `khoa` = '0' WHERE id = '" . mysql_real_escape_string($_GET[mokhoa]) . "'");
+$infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `congtacvien` WHERE `id` = '".$_GET[mokhoa]."' LIMIT 1"));
+mysqli_query($GLOBALS["___BMN_2312"], "UPDATE congtacvien SET `khoa` = '0' WHERE id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET[mokhoa]) . "'");
 echo '<meta http-equiv=refresh content="0; URL=/panelvip/index.php">';
 die('<script>alert("Mở Khóa Tài Khoản Thành Công!"); </script>');
 exit;
@@ -275,4 +275,4 @@ exit;
 </div></div>
 <?php
 
-echo '</div>';include'../system/foot.php';
+echo '</div>';include'../system/foot.php'; 

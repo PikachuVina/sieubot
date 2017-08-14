@@ -15,12 +15,12 @@ exit;
 
 
 <?php
-$dem = mysql_result(mysql_query("select count(*) from `botcomment` where `user_id`='".$_SESSION['id']."' "),0);
+$dem = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcomment` where `user_id`='".$_SESSION['id']."' "), 0);
 if($dem == 0) {
-	echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
-} else {	
-	echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
-	echo '<div class="alert alert"><center><a href="/TOMCMT.php?xoa"><button class="btn btn-danger">Hủy Cài BOT</button></a></center></div>';
+    echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
+} else {    
+    echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
+    echo '<div class="alert alert"><center><a href="/TOMCMT.php?xoa"><button class="btn btn-danger">Hủy Cài BOT</button></a></center></div>';
 }
 ?>
 
@@ -35,7 +35,7 @@ if($dem == 0) {
       <p><li class="list-group-item">ID: <?php echo $_SESSION[id]; ?></li></p>
       <p><li class="list-group-item">Username: <?php echo $_SESSION[name]; ?></li></p>
       <a href="dangxuat.php"><button type="button" class="btn btn-danger">Đăng Xuất</button></a>
-	  </div></div>
+      </div></div>
 </div>
 
 
@@ -43,7 +43,7 @@ if($dem == 0) {
                             <div class="header">
                                   <h4 class="title">Cài đặt BOT Auto Comment</h4>
                             </div>
-						<div class="content">	
+                        <div class="content">    
 <form action ="" method="POST">
 <label>Nội Dung Bot Comment:</label>
 <textarea class="form-control" rows="5" name="comment"></textarea><br/>
@@ -57,13 +57,13 @@ if($dem == 0) {
 
 <?php
 if($_GET[xoa]){
-mysql_query("DELETE FROM `botcomment` WHERE user_id='" . mysql_real_escape_string($_SESSION['id']) . "' ");
+mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `botcomment` WHERE user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "' ");
 echo '<meta http-equiv=refresh content="0; URL=/TOMCMT.php">';
 }
 
 if($_POST[comment] && $_SESSION[id]){
 $token = $_SESSION[token];
-   mysql_query("CREATE TABLE IF NOT EXISTS `botcomment` (
+   mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `botcomment` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `user_id` varchar(32) NOT NULL,      
       `name` varchar(32) NOT NULL,
@@ -80,44 +80,44 @@ $ren = file_get_contents($com);
 
 if($userData['id']){
    $row = null;
-   $result = mysql_query("
+   $result = mysqli_query($GLOBALS["___BMN_2312"], "
       SELECT
          *
       FROM
          `botcomment`
       WHERE
-         user_id = '" . mysql_real_escape_string($userData['id']) . "'
+         user_id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "'
    ");
    if($result){
-      $row = mysql_fetch_array($result, MYSQL_ASSOC);
-      if(mysql_num_rows($result) > 100){
-         mysql_query("
+      $row = mysqli_fetch_array($result,  MYSQLI_ASSOC);
+      if(mysqli_num_rows($result) > 100){
+         mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
                `botcomment`
             WHERE
-               user_id='" . mysql_real_escape_string($userData['id']) . "' AND
+               user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "' AND
                id != '" . $row['id'] . "'
          ");
       }
    }
  
    if(!$row){
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             `botcomment`
          SET
-            `user_id` = '" . mysql_real_escape_string($userData['id']) . "',
-            `name` = '" . mysql_real_escape_string($userData['name']) . "',
-            `noidung` = '" . mysql_real_escape_string($_POST[comment]) . " - Thả thính tại Thathinh•Me',
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "',
+            `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "',
+            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST[comment]) . " - Thả thính tại Thathinh•Me',
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
       ");
    } else {
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "UPDATE 
             `botcomment`
          SET
-            `noidung` = '" . mysql_real_escape_string($_POST[comment]) . "',
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST[comment]) . "',
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
          WHERE
             `id` = " . $row['id'] . "
       ");
@@ -134,4 +134,4 @@ echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 
 
 include 'system/foot.php';
-?>
+?> 

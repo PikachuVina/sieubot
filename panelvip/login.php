@@ -4,9 +4,9 @@ include'../system/head.php';
 ?>
 
 <div class="content">
-	<div class="card"><div class="header">
-		<h4 class="title"> Control Panel Cộng Tác Viên</h4>
-	</div>
+    <div class="card"><div class="header">
+        <h4 class="title"> Control Panel Cộng Tác Viên</h4>
+    </div>
 
 <?php
 //if($_SESSION['id']) 
@@ -15,11 +15,11 @@ include'../system/head.php';
 //}
 
 if($_POST['user'] && $_POST['pass']){
-$username = mysql_real_escape_string($_POST['user']);
-$password = mysql_real_escape_string($_POST['pass']);
-$kiemtra = mysql_query("SELECT * FROM `congtacvien` WHERE `username`='" . trim(mb_strtolower($username)) . "' LIMIT 1");
-if (mysql_num_rows($kiemtra)) {
-$user = mysql_fetch_assoc($kiemtra);
+$username = mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['user']);
+$password = mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['pass']);
+$kiemtra = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `congtacvien` WHERE `username`='" . trim(mb_strtolower($username)) . "' LIMIT 1");
+if (mysqli_num_rows($kiemtra)) {
+$user = mysqli_fetch_assoc($kiemtra);
 if (md5($password) == $user['pass']) {
 $_SESSION['id'] = $user['id'];
 $_SESSION['user'] = $username;
@@ -57,6 +57,6 @@ die('<script>window.location.href="/panelvip/login.php"; </script>');
       PRIMARY KEY (`id`)
       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
    ");
-*/ ?>	 
+*/ ?>     
 
-<?php include'../system/foot.php'; ?> 
+<?php include'../system/foot.php'; ?>  

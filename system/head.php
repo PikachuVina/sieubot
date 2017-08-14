@@ -8,18 +8,18 @@ $tags = 'NhacVui.Me - Auto Like Bot Cảm Xúc - Thả Thính Online';
 $hometitle = 'Auto Bot Like - Bot Like Cảm Xúc Thả Thính Online';
 $home = 'http://NhacVui.Me';
 //***End***//
-$host = "localhost";
-$username = "###";
-$password = "##";
-$dbname = "nhacvui_vip";
+$host = "mysql5.gear.host";
+$username = "sieubot";
+$password = "Kc9Mfn~2~olT";
+$dbname = "sieubot";
 
-$connection = mysql_connect($host,$username,$password);
+$connection = ($GLOBALS["___BMN_2312"] = mysqli_connect($host, $username, $password));
 if (!$connection)
   {
-  die('Could not connect: ' . mysql_error());
+  die('Could not connect: ' . mysqli_error($GLOBALS["___BMN_2312"]));
   }
-mysql_select_db($dbname) or die(mysql_error());
-mysql_query("SET NAMES utf8");
+mysqli_select_db($GLOBALS["___BMN_2312"], $dbname) or die(mysqli_error($GLOBALS["___BMN_2312"]));
+mysqli_query($GLOBALS["___BMN_2312"], "SET NAMES utf8");
 function auto($url){
    $curl = curl_init();
    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -52,13 +52,13 @@ function check($str)
         $str = htmlentities(trim($str), ENT_QUOTES, 'UTF-8');
         $str = self::checkin($str);
         $str = nl2br($str);
-        $str = mysql_real_escape_string($str);
+        $str = mysqli_real_escape_string($GLOBALS["___BMN_2312"], $str);
 
         return $str;
     }
-	
+    
 
-	
+    
 ?>
 
 
@@ -71,60 +71,60 @@ function check($str)
 
 
 
-											   _____                            _      _ _        
-											  / ____|                          | |    (_) |       
-											 | (___   ___  _   _ _ __ ___ ___  | |     _| | _____ 
-											  \___ \ / _ \| | | | '__/ __/ _ \ | |    | | |/ / _ \
-											  ____) | (_) | |_| | | | (_|  __/ | |____| |   <  __/
-											 |_____/ \___/ \__,_|_|  \___\___| |______|_|_|\_\___|
-																									  
-																									  
+                                               _____                            _      _ _        
+                                              / ____|                          | |    (_) |       
+                                             | (___   ___  _   _ _ __ ___ ___  | |     _| | _____ 
+                                              \___ \ / _ \| | | | '__/ __/ _ \ | |    | | |/ / _ \
+                                              ____) | (_) | |_| | | | (_|  __/ | |____| |   <  __/
+                                             |_____/ \___/ \__,_|_|  \___\___| |______|_|_|\_\___|
+                                                                                                      
+                                                                                                      
 
-											====================================================
-												
-													-=* SOURCE CODY BY Cường Phiêu *=-
-													-=**  Facebook.com/cuongphieu9x **=-
-												
-											====================================================
+                                            ====================================================
+                                                
+                                                    -=* SOURCE CODY BY Cường Phiêu *=-
+                                                    -=**  Facebook.com/cuongphieu9x **=-
+                                                
+                                            ====================================================
 
 -->
 <?php
 
-	
+    
 // RESET thành viên VIP Khi Quá Hạn Sử Dụng
-	$time = time();
-	$timelike = mysql_query("SELECT * FROM `idvip`");
-	if(time() > $timelike['tgvip']){
-	mysql_query("DELETE FROM `idvip` WHERE `tgvip` < '.$time.'");
-	}
+    $time = time();
+    $timelike = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `idvip`");
+    if(time() > $timelike['tgvip']){
+    mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `idvip` WHERE `tgvip` < '.$time.'");
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<title><?php echo $hometitle ?></title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta property="og:site_name" content="detail"/> 
-		<meta property="og:url" content="http://NhacVui.Me"/> 
-		<meta property="og:type" content="website"/>
-		<meta property="og:title" content="<?php echo $title; ?> Hệ Thống Auto Bot Thả Thính , Bot Cảm Xúc Số 1 Việt Nam" /> 
-		<meta property="og:description" content="Hệ Thống Bot Like Facebook Tốt Nhất Dành Cho Thanh Viên tại <?php echo $title; ?> " />  
-		<link rel="shortcut icon" href="https://i.imgur.com/h6NWYI8.png">
-		<meta property="og:image" content="https://i.imgur.com/FBYFvb8.jpg" />
+        <title><?php echo $hometitle ?></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:site_name" content="detail"/> 
+        <meta property="og:url" content="http://NhacVui.Me"/> 
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="<?php echo $title; ?> Hệ Thống Auto Bot Thả Thính , Bot Cảm Xúc Số 1 Việt Nam" /> 
+        <meta property="og:description" content="Hệ Thống Bot Like Facebook Tốt Nhất Dành Cho Thanh Viên tại <?php echo $title; ?> " />  
+        <link rel="shortcut icon" href="https://i.imgur.com/h6NWYI8.png">
+        <meta property="og:image" content="https://i.imgur.com/FBYFvb8.jpg" />
     <!-- Bootstrap core CSS     -->
-		<link href="<?php echo $home; ?>/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="<?php echo $home; ?>/assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Animation library for notifications   -->
-		<link href="<?php echo $home; ?>/assets/css/animate.min.css" rel="stylesheet"/>
+        <link href="<?php echo $home; ?>/assets/css/animate.min.css" rel="stylesheet"/>
     <!--  Light Bootstrap Table core CSS    -->
-		<link href="<?php echo $home; ?>/assets/css/tomdz-thathinh-dashboard.css" rel="stylesheet"/>
+        <link href="<?php echo $home; ?>/assets/css/tomdz-thathinh-dashboard.css" rel="stylesheet"/>
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-		<link href="<?php echo $home; ?>/assets/css/demo.css" rel="stylesheet" />
+        <link href="<?php echo $home; ?>/assets/css/demo.css" rel="stylesheet" />
     <!--     Fonts and icons     -->
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-		<link href="<?php echo $home; ?>/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-		<script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+        <link href="<?php echo $home; ?>/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+        <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
 </head>
 
 <body>
@@ -137,7 +137,7 @@ function check($str)
 
     -->
     <div class="sidebar" data-color="orange" data-image="/assets/img/sidebar-1.jpg">
-    	<div class="sidebar-wrapper">
+        <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="/" class="simple-text">
                    <?php echo $title; ?>
@@ -157,8 +157,8 @@ function check($str)
                         <p>GET Access Token</p>
                     </a>
                 </li>
-				
-				<?php if(!$_SESSION[id]) { ?>
+                
+                <?php if(!$_SESSION[id]) { ?>
                 <li>
                     <a href="/nick.php">
                         <i class="pe-7s-id"></i>
@@ -177,7 +177,7 @@ function check($str)
                         <p>Đang Cập Nhật</p>
                     </a>
                 </li>
-				<?php } else { ?>
+                <?php } else { ?>
                 <li>
                     <a href="/info.php">
                         <i class="pe-7s-users"></i>
@@ -195,22 +195,22 @@ function check($str)
                         <i class="pe-7s-way"></i>
                         <p>BOT Tréo Like Nhau</p>
                     </a>
-                </li>		
+                </li>        
                 <li>
                     <a href="/">
                         <i class="pe-7s-refresh-2"></i>
                         <p>Đang Cập Nhật ...</p>
                     </a>
-                </li>				<?php } ?>
-				
-				<li class="active-pro">
+                </li>                <?php } ?>
+                
+                <li class="active-pro">
                     <a href="https://fb.me/cuongphieu9x">
                         <i class="pe-7s-rocket"></i>
                         <p>Hợp Tác - Quảng Cáo</p>
                     </a>
                 </li>
             </ul>
-    	</div>
+        </div>
     </div>
 <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
@@ -232,10 +232,10 @@ function check($str)
                                     <i class="fa fa-globe"></i>
                                     <b class="caret hidden-sm hidden-xs"></b>
                                     <span class="notification hidden-sm hidden-xs">2</span>
-									<p class="hidden-lg hidden-md">
-										2 Notifications
-										<b class="caret"></b>
-									</p>
+                                    <p class="hidden-lg hidden-md">
+                                        2 Notifications
+                                        <b class="caret"></b>
+                                    </p>
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="https://like1phut.com">BotLike No.1 Việt Nam!</a></li>
@@ -247,13 +247,13 @@ function check($str)
 
                     <ul class="nav navbar-nav navbar-right">
 
-					<?php if($_SESSION[admin]) { ?>
+                    <?php if($_SESSION[admin]) { ?>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-										<i class="pe-7s-user"></i> Control Panel
-										<b class="caret"></b>
-									</p>
+                                        <i class="pe-7s-user"></i> Control Panel
+                                        <b class="caret"></b>
+                                    </p>
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="#">Thông Tin</a></li>
@@ -261,27 +261,27 @@ function check($str)
                                 <li><a href="/dangxuat.php">Đăng Xuất</a></li>
                               </ul>
                         </li>
-						<?php } ?>
-						
+                        <?php } ?>
+                        
                         <?php if(!$_SESSION[id]) { ?>
-						<li class="dropdown">
+                        <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-										<i class="pe-7s-refresh-2"></i> Tính Năng
-										<b class="caret"></b>
-									</p>
+                                        <i class="pe-7s-refresh-2"></i> Tính Năng
+                                        <b class="caret"></b>
+                                    </p>
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="/api/gettoken.php"><i class="pe-7s-user"></i> GET Token Full</a></li>
                               </ul>
                         </li>
-						<?php } else { ?>
+                        <?php } else { ?>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-										Account
-										<b class="caret"></b>
-									</p>
+                                        Account
+                                        <b class="caret"></b>
+                                    </p>
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="#"><?php echo $_SESSION[id]; ?></a></li>
@@ -289,8 +289,8 @@ function check($str)
                                 <li><a href="/dangxuat.php">Đăng Xuất</a></li>
                               </ul>
                         </li>
-						<?php } ?>
-						<li class="separator hidden-lg hidden-md"></li>
+                        <?php } ?>
+                        <li class="separator hidden-lg hidden-md"></li>
                     </ul>
                 </div>
             </div>

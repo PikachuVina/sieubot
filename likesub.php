@@ -2,8 +2,8 @@
 session_start();
 if(!$_SESSION[id])
 {
-	echo '<meta http-equiv=refresh content="0; URL=/index.php">'; 
-	exit;
+    echo '<meta http-equiv=refresh content="0; URL=/index.php">'; 
+    exit;
 }
 include 'system/head.php';
 
@@ -11,14 +11,14 @@ include 'system/head.php';
 if($_POST['ID_STATUS'] && $_SESSION['id']){
 
 
-	
+    
 $idstt2=$_POST['ID_STATUS'];
 $iduser=$_SESSION['id'];
 if($_POST['type'] == 'like')
 {
-$spam2 = mysql_result(mysql_query("SELECT COUNT(*) FROM `autolike` WHERE `iduser`='".$iduser."'"), 0);
+$spam2 = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `autolike` WHERE `iduser`='".$iduser."'"),  0);
 if($spam2 == 0){
-mysql_query("CREATE TABLE IF NOT EXISTS `autolike` (
+mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `autolike` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `iduser` varchar(32) NOT NULL,
       `time` varchar(32) NOT NULL,
@@ -26,21 +26,21 @@ mysql_query("CREATE TABLE IF NOT EXISTS `autolike` (
       PRIMARY KEY (`id`)
       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
    ");
-   mysql_query(
+   mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             autolike
          SET
-            `iduser` = '" . mysql_real_escape_string($iduser) . "',
+            `iduser` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $iduser) . "',
             `time` = '" . time() . "',
-            `idlike` = '" . mysql_real_escape_string($idstt2) . "'
+            `idlike` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $idstt2) . "'
       ");
-	$laytoken = mysql_query("SELECT * FROM `token` ORDER BY RAND() LIMIT 0,3");
+    $laytoken = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token` ORDER BY RAND() LIMIT 0,3");
 
-	while ($getpu = mysql_fetch_array($laytoken)){
-		$tokenlike= trim($getpu['access_token']);		
-	auto('https://graph.facebook.com/'.$idstt2.'/likes?access_token='.$tokenlike.'&method=post');}
-	echo "Like Thành Công";
- } else {	echo "Like Không Thành Công - AntiSpam"; }
+    while ($getpu = mysqli_fetch_array($laytoken)){
+        $tokenlike= trim($getpu['access_token']);        
+    auto('https://graph.facebook.com/'.$idstt2.'/likes?access_token='.$tokenlike.'&method=post');}
+    echo "Like Thành Công";
+ } else {    echo "Like Không Thành Công - AntiSpam"; }
 }
 if($_POST['type'] == 'sub')
 {
@@ -60,9 +60,9 @@ if($kiemtra.success==false) {
 // code xử lý đăng ký
 
 
-	$spam2 = mysql_result(mysql_query("SELECT COUNT(*) FROM `autosub` WHERE `iduser`='".$iduser."'"), 0);
+    $spam2 = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `autosub` WHERE `iduser`='".$iduser."'"),  0);
 if($spam2 == 0){
-mysql_query("CREATE TABLE IF NOT EXISTS `autosub` (
+mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `autosub` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `iduser` varchar(32) NOT NULL,
       `time` varchar(32) NOT NULL,
@@ -70,23 +70,23 @@ mysql_query("CREATE TABLE IF NOT EXISTS `autosub` (
       PRIMARY KEY (`id`)
       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
    ");
-   mysql_query(
+   mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             autosub
          SET
-            `iduser` = '" . mysql_real_escape_string($iduser) . "',
+            `iduser` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $iduser) . "',
             `time` = '" . time() . "',
-            `idlike` = '" . mysql_real_escape_string($idstt2) . "'
+            `idlike` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $idstt2) . "'
       ");
-	$laytoken = mysql_query("SELECT * FROM `token` ORDER BY RAND() LIMIT 0,3");
+    $laytoken = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token` ORDER BY RAND() LIMIT 0,3");
 
-	while ($getpu = mysql_fetch_array($laytoken)){
-		$tokenlike= trim($getpu['access_token']);
+    while ($getpu = mysqli_fetch_array($laytoken)){
+        $tokenlike= trim($getpu['access_token']);
 auto('https://graph.facebook.com/me/friends/'.$idstt2.'?method=post&access_token='.$tokenlike);}
-	echo "Sub Thành Công";
- } else {	echo "Sub Không Thành Công - AntiSpam Thử Lại Sau Vài Phút"; }
-	}
-}	
-	
+    echo "Sub Thành Công";
+ } else {    echo "Sub Không Thành Công - AntiSpam Thử Lại Sau Vài Phút"; }
+    }
+}    
+    
 }
-?>
+?> 

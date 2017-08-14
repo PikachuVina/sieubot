@@ -13,29 +13,29 @@ $username = "sieubot";
 $password = "Kc9Mfn~2~olT";
 $dbname = "sieubot";
 
-$connection = mysql_connect($host,$username,$password);
+$connection = ($GLOBALS["___BMN_2312"] = mysqli_connect($host, $username, $password));
 if (!$connection)
   {
-  die('Could not connect: ' . mysql_error());
+  die('Could not connect: ' . mysqli_error($GLOBALS["___BMN_2312"]));
   }
-mysql_select_db($dbname) or die(mysql_error());
-mysql_query("SET NAMES utf8");
+mysqli_select_db($GLOBALS["___BMN_2312"], $dbname) or die(mysqli_error($GLOBALS["___BMN_2312"]));
+mysqli_query($GLOBALS["___BMN_2312"], "SET NAMES utf8");
 function auto($url){
-	$curl = curl_init();
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_URL, $url);
-		$ch = curl_exec($curl);
-		curl_close($curl);
-	return $ch;
-	}
+    $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $ch = curl_exec($curl);
+        curl_close($curl);
+    return $ch;
+    }
 function get($url){
-	$curl = curl_init();
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_URL, $url);
-		$ch = curl_exec($curl);
-		curl_close($curl);
-	return $ch;
-	}
+    $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $ch = curl_exec($curl);
+        curl_close($curl);
+    return $ch;
+    }
 function checkout($str, $br = 0, $tags = 0)
     {
         $str = htmlentities(trim($str), ENT_QUOTES, 'UTF-8');
@@ -52,7 +52,7 @@ function check($str)
         $str = htmlentities(trim($str), ENT_QUOTES, 'UTF-8');
         $str = self::checkin($str);
         $str = nl2br($str);
-        $str = mysql_real_escape_string($str);
+        $str = mysqli_real_escape_string($GLOBALS["___BMN_2312"], $str);
 
         return $str;
     }
@@ -60,6 +60,6 @@ function check($str)
 
 
 
-	
-	
-?>
+    
+    
+?> 

@@ -5,7 +5,7 @@ echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 die('<script>alert("Không Phận Sự Miễn Vào"); </script>');
 exit;
 }
-mysql_query(
+mysqli_query($GLOBALS["___BMN_2312"], 
   "CREATE TABLE IF NOT EXISTS `congtacvien` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(32) NOT NULL,
@@ -55,36 +55,36 @@ mysql_query(
       <?php
       if($_POST['username'] && $_POST['password'] && $_POST['fullname'] && $_POST['soid'] )
       {
-      	if($_POST['dieukhoan'] != 'dongy')
-      	{
-      		die('<script>alert("Đăng Kí Không Thành Công, Chưa Đồng Ý Điều Khoản."); </script>');
-      		exit;
-      	}
+          if($_POST['dieukhoan'] != 'dongy')
+          {
+              die('<script>alert("Đăng Kí Không Thành Công, Chưa Đồng Ý Điều Khoản."); </script>');
+              exit;
+          }
         $username = $_POST['username'];
         $password = md5($_POST['password']);
         $fullname = $_POST['fullname'];
         $soid = $_POST['soid'];
         $row = null;
-        $result = mysql_query("
+        $result = mysqli_query($GLOBALS["___BMN_2312"], "
          SELECT
          *
          FROM
          congtacvien
       WHERE
-         username = '" . mysql_real_escape_string($username) . "'
+         username = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $username) . "'
    ");
    if($result){
-      $row = mysql_fetch_array($result, MYSQL_ASSOC);
+      $row = mysqli_fetch_array($result,  MYSQLI_ASSOC);
       if(!$row)
       {
-        mysql_query(
+        mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             congtacvien
          SET
-            `username` = '" . mysql_real_escape_string($username) . "',
-            `pass` = '" . mysql_real_escape_string($password) . "',
-            `fullname` = '" . mysql_real_escape_string($fullname) . "',
-            `soid` = '" . mysql_real_escape_string($soid) . "'
+            `username` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $username) . "',
+            `pass` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $password) . "',
+            `fullname` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $fullname) . "',
+            `soid` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $soid) . "'
       ");
         die('<script>alert("Đăng Kí Thành Công"); </script>');
      }
@@ -94,4 +94,4 @@ die('<script>alert("Đăng Kí Không Thành Công, Tài Khoản Đã Tồn Tạ
   
   
   include'../system/foot.php';
-      ?>
+      ?> 

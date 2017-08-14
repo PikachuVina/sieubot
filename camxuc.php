@@ -8,7 +8,7 @@ if($_GET[cai] && $_GET[camxuc])
 $token = $_SESSION[token];
 
 
-   mysql_query("CREATE TABLE IF NOT EXISTS `botcamxuc` (
+   mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `botcamxuc` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `user_id` varchar(32) NOT NULL,      
       `name` varchar(32) NOT NULL,
@@ -25,47 +25,47 @@ $ren = file_get_contents($com);
 
 if($userData['id']){
    $row = null;
-   $result = mysql_query("
+   $result = mysqli_query($GLOBALS["___BMN_2312"], "
       SELECT
          *
       FROM
          `botcamxuc`
       WHERE
-         user_id = '" . mysql_real_escape_string($userData['id']) . "'
+         user_id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "'
    ");
    if($result){
-      $row = mysql_fetch_array($result, MYSQL_ASSOC);
-      if(mysql_num_rows($result) > 100){
-         mysql_query("
+      $row = mysqli_fetch_array($result,  MYSQLI_ASSOC);
+      if(mysqli_num_rows($result) > 100){
+         mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
                `botcamxuc`
             WHERE
-               user_id='" . mysql_real_escape_string($userData['id']) . "' AND
+               user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "' AND
                id != '" . $row['id'] . "'
          ");
       }
    }
  
    if(!$row){
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             `botcamxuc`
          SET
-            `user_id` = '" . mysql_real_escape_string($userData['id']) . "',
-            `name` = '" . mysql_real_escape_string($userData['name']) . "',
+            `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "',
+            `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "',
 
-            `usercai` = '" . mysql_real_escape_string($_SESSION['id']) . "',
-            `camxuc` = '" . mysql_real_escape_string($_GET['camxuc']) . "',
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `usercai` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "',
+            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET['camxuc']) . "',
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
       ");
    } else {
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "UPDATE 
             `botcamxuc`
          SET
-            `camxuc` = '" . mysql_real_escape_string($_GET['camxuc']) . "',
-            `usercai` = '" . mysql_real_escape_string($_SESSION['id']) . "',
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET['camxuc']) . "',
+            `usercai` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "',
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
          WHERE
             `id` = " . $row['id'] . "
       ");
@@ -79,13 +79,12 @@ die('<script>alert("Token đã hết hạn sử dụng ... Vui lòng nhập lạ
 }
 if($_GET[xoa])
 {
-   mysql_query("
+   mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
                `botcamxuc`
             WHERE
-               user_id='" . mysql_real_escape_string($_SESSION['id']) . "' 
+               user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "' 
          ");
 die('<script>alert("Đã xóa thành công ... Vui lòng nhập lại");window.location.href="/index.php";  </script>');
 }
-?>
-
+?> 

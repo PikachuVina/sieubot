@@ -10,11 +10,11 @@ exit;
 
 if($_GET[xoa])
 {
-   mysql_query("
+   mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
                `botex`
             WHERE
-               user_id='" . mysql_real_escape_string($_SESSION['id']) . "' 
+               user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "' 
          ");
 echo '<meta http-equiv=refresh content="0; URL=/botex.php">';
 }
@@ -23,11 +23,11 @@ echo '<meta http-equiv=refresh content="0; URL=/botex.php">';
             <div class="container-fluid">
                 <div class="row">
 <?php
-$dem = mysql_result(mysql_query("select count(*) from `botex` where `user_id`='".$_SESSION['id']."' "),0);
+$dem = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botex` where `user_id`='".$_SESSION['id']."' "), 0);
 if($dem == 0) {
-	echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài BotEx Trên Hệ Thống Like.BigMMO.Com</center></div>';
-} else {	
-	echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài BotEx Trên Hệ Thống Like.BigMMO.Com</center></div>';
+    echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài BotEx Trên Hệ Thống Like.BigMMO.Com</center></div>';
+} else {    
+    echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài BotEx Trên Hệ Thống Like.BigMMO.Com</center></div>';
 }
 ?>
 
@@ -41,10 +41,10 @@ if($dem == 0) {
       <div class="panel-body">
 <form action ="" method="POST">
 <div class="form-group">
-	 <div class="list1"><select name="likecmt" class="form-control">
+     <div class="list1"><select name="likecmt" class="form-control">
                  <option value="1">Like Bình Luận</option>
                  <option value="0">Không Like Bình Luận</option>
-	 </select>
+     </select>
 </div><br />
 <label>Cài Đặt Cho ID:</label>
 <input type="text" class="form-control" name="idfb"><br />
@@ -62,9 +62,9 @@ if($dem == 0) {
       <div class="form-group">
       <p><li class="list-group-item">ID: <?php echo $_SESSION[id]; ?></li></p>
       <p><li class="list-group-item">Username: <?php echo $_SESSION[name]; ?></li></p>
-      <p><li class="list-group-item">Tổng <?php echo '' . mysql_result(mysql_query("SELECT COUNT(*) FROM `token`"), 0) . ''; ?> Người trên Hệ Thống</li></p>
+      <p><li class="list-group-item">Tổng <?php echo '' . mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `token`"),  0) . ''; ?> Người trên Hệ Thống</li></p>
       <a href="dangxuat.php"><button type="button" class="btn btn-danger">Đăng Xuất</button></a>
-	  </div></div>
+      </div></div>
 </div>
 
 </div></div>
@@ -75,7 +75,7 @@ if($dem == 0) {
 if($_POST[idfb] && $_SESSION[id])
 {
 $token = $_SESSION[token];
-   mysql_query("CREATE TABLE IF NOT EXISTS `botex` (
+   mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `botex` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `user_id` varchar(32) NOT NULL,      
       `name` varchar(32) NOT NULL,
@@ -92,44 +92,44 @@ $ren = file_get_contents($com);
 
 if($userData['id']){
    $row = null;
-   $result = mysql_query("
+   $result = mysqli_query($GLOBALS["___BMN_2312"], "
       SELECT
          *
       FROM
          `botex`
       WHERE
-         user_id = '" . mysql_real_escape_string($userData['id']) . "'
+         user_id = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "'
    ");
    if($result){
-      $row = mysql_fetch_array($result, MYSQL_ASSOC);
-      if(mysql_num_rows($result) > 100){
-         mysql_query("
+      $row = mysqli_fetch_array($result,  MYSQLI_ASSOC);
+      if(mysqli_num_rows($result) > 100){
+         mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
                `botex`
             WHERE
-               user_id='" . mysql_real_escape_string($userData['id']) . "' AND
+               user_id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "' AND
                id != '" . $row['id'] . "'
          ");
       }
    }
  
    if(!$row){
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             `botex`
          SET
-            `user_id` = '" . mysql_real_escape_string($userData['id']) . "',
-            `name` = '" . mysql_real_escape_string($userData['name']) . "',
-            `idfb` = '" . mysql_real_escape_string($_POST['idfb']) . "',
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "',
+            `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "',
+            `idfb` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['idfb']) . "',
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
       ");
    } else {
-      mysql_query(
+      mysqli_query($GLOBALS["___BMN_2312"], 
          "UPDATE 
             `botex`
          SET
-            `idfb` = '" . mysql_real_escape_string($_POST['idfb']) . "',
-            `access_token` = '" . mysql_real_escape_string($token) . "'
+            `idfb` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['idfb']) . "',
+            `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
          WHERE
             `id` = " . $row['id'] . "
       ");
@@ -142,5 +142,4 @@ echo '<meta http-equiv=refresh content="0; URL=/bot.php">';
 }
 }
 include 'system/foot.php';
-?>
-
+?> 
