@@ -46,11 +46,11 @@ auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.ur
 
 if($_GET[hanhdong] == 'cx')
 {
-$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` ORDER BY RAND() LIMIT 0,70");
+$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` ORDER BY RAND() LIMIT 0,4");
 while ($post = mysqli_fetch_array($res)){
 $token= $post['access_token'];
 $camxuc= $post['camxuc'];
-$stat=json_decode(auto('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit=20'),true);
+$stat=json_decode(auto('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit=15'),true);
 for($i=0;$i<count($stat[data]);$i++){
 if($camxuc == 'SmartBot')
 {
