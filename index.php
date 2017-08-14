@@ -53,28 +53,28 @@
     <tr>
         <td>1 Người</td>
         <td>100.000vnđ / 1 Tháng</td>
-        <td><a href="https://www.facebook.com/cuongphieu9x" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
+        <td><a href="https://www.facebook.com/bmn.2312" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
     </tr>
     <tr>
         <td>Nhóm 5 Người</td>
         <td>400.000vnđ / 1 Tháng</td>
-        <td><a href="https://www.facebook.com/cuongphieu9x" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
+        <td><a href="https://www.facebook.com/bmn.2312" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
     </tr>
     <tr>
         <td>Cộng Tác Viên (Có Bảng Điều Khiển Riêng)</td>
         <td>1.000.000vnđ / 1 Tháng / Có 20 ID</td>
-        <td><a href="https://www.facebook.com/cuongphieu9x" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
+        <td><a href="https://www.facebook.com/bmn.2312" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
     </tr>
     <tr>
     <tr>
         <td>Cộng Tác Viên (Có Bảng Điều Khiển Riêng)</td>
         <td>2.000.000vnđ / 1 Tháng / Có 50 ID</td>
-        <td><a href="https://www.facebook.com/cuongphieu9x" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
+        <td><a href="https://www.facebook.com/bmn.2312" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
     </tr>
     <tr>
         <td>Cộng Tác Viên (Có Bảng Điều Khiển Riêng)</td>
         <td>3.000.000vnđ / 2 Tháng / Có 50 ID</td>
-        <td><a href="https://www.facebook.com/cuongphieu9x" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
+        <td><a href="https://www.facebook.com/bmn.2312" target="_blank"><button type="button" class="btn btn-danger">Hợp Tác</button></a></td>
     </tr>
 
        </tbody>
@@ -89,7 +89,7 @@
 </div>
                             
       <div class="panel-body">
-      <div class="list-group-item"><i class="pe-7s-science"></i> Tại Sao Bạn Lại Chọn CuongPhieu Làm Nơi Đáng Tin Cậy Để Cày Bot?</div>
+      <div class="list-group-item"><i class="pe-7s-science"></i> Tại Sao Bạn Lại Chọn Nghĩa•MặtLờ Làm Nơi Đáng Tin Cậy Để Cày Bot?</div>
       <div class="list-group-item"><i class="pe-7s-science"></i> 1. Server Hoạt Động Linh Hoạt - Nhận Dạng Nhanh Chống</div>
       <div class="list-group-item"><i class="pe-7s-science"></i> 2. Cài Đặt Dể Dàng - Tốc Độ Truy Cập Nhanh</div>
       <div class="list-group-item"><i class="pe-7s-science"></i> 3. Bot Trâu Lâu Die , Hoạt Động Ổn Định Lâu dài</div>
