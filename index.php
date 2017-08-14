@@ -151,13 +151,13 @@
             <label for="usr">Cài Cho Bản Thân:</label><br>
 <?php
 $iduser=$_SESSION['id'];
-$like = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botlike` where `user_id`='$iduser' "), 0);
-$love = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='LOVE' "), 0);
-$haha = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='HAHA' "), 0);
-$sad = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='SAD' "), 0);
-$wow = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='WOW' "), 0);
-$angry = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='ANGRY' "), 0);
-$cmt = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcomment` where `user_id`='$iduser'"), 0);
+$like = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botlike` where `user_id`='$iduser' "));
+$love = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='LOVE' "));
+$haha = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='HAHA' "));
+$sad = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='SAD' "));
+$wow = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='WOW' "));
+$angry = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='ANGRY' "));
+$cmt = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botcomment` where `user_id`='$iduser'"));
 ?> 
 <div class="row"style="text-align: center;"><div class="col-lg-4 panel-body"> <?php
 if($like == 0){ ?>
