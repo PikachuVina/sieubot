@@ -10,7 +10,7 @@ if($_POST['user'] && $_POST['pass'])
 {
 $user = $_POST['user'];
 $pass = $_POST['pass'];
-if($user == 'admin' && $pass == '25251325')
+if($user == 'admin' && $pass == '18791126')
 {
 $_SESSION['admin'] = $user;
 echo '<meta http-equiv=refresh content="0; URL=/panelvip">';
