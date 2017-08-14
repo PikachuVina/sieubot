@@ -6,7 +6,7 @@ $title = 'nhacvui.me';
 $hometitle = 'nhacvui.me - AutoBot Cảm Xúc - Thả Thính Online';
 $tags = 'nhacvui.me - Auto Like Bot Cảm Xúc - Thả Thính Online';
 $hometitle = 'Auto Bot Like - Bot Like Cảm Xúc Thả Thính Online';
-$home = 'https://sieubot.herokuapp.com';
+$home = 'http://sieubot.herokuapp.com';
 //***End***//
 $host = "mysql5.gear.host";
 $username = "sieubot";
