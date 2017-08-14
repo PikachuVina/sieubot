@@ -54,7 +54,7 @@ $stat=json_decode(auto('https://graph.facebook.com/me/home?fields=id,message,cre
 for($i=0;$i<count($stat[data]);$i++){
 if($camxuc == 'SmartBot')
 {
-$total = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `SmartBot`"));
+$total = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `SmartBot`"),  0);
 $req = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `SmartBot`");
 while ($check = mysqli_fetch_assoc($req)) {
 for ($u=0; $u<=$total; $u++) {
