@@ -2,9 +2,9 @@
 session_start();
 
 //***Ghi Chú***//
-$title = 'NhacVui.Me';
-$hometitle = 'NhacVui.Me - AutoBot Cảm Xúc - Thả Thính Online';
-$tags = 'NhacVui.Me - Auto Like Bot Cảm Xúc - Thả Thính Online';
+$title = 'Nghia.ML';
+$hometitle = 'Nghia.ML - AutoBot Cảm Xúc - Thả Thính Online';
+$tags = 'Nghia.ML - Auto Like Bot Cảm Xúc - Thả Thính Online';
 $hometitle = 'Auto Bot Like - Bot Like Cảm Xúc Thả Thính Online';
 $home = 'http://nghiaml.herokuapp.com';
 //***End***//
@@ -82,8 +82,8 @@ function check($str)
 
                                             ====================================================
                                                 
-                                                    -=* SOURCE CODY BY Cường Phiêu *=-
-                                                    -=**  Facebook.com/cuongphieu9x **=-
+                                                    -=* SOURCE Edit By Mạnh Nghĩa *=-
+                                                    -=**  Facebook.Com/BMN.2312 **=-
                                                 
                                             ====================================================
 
@@ -106,7 +106,7 @@ function check($str)
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:site_name" content="detail"/> 
-        <meta property="og:url" content="http://NhacVui.Me"/> 
+        <meta property="og:url" content="http://Nghia.ML"/> 
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="<?php echo $title; ?> Hệ Thống Auto Bot Thả Thính , Bot Cảm Xúc Số 1 Việt Nam" /> 
         <meta property="og:description" content="Hệ Thống Bot Like Facebook Tốt Nhất Dành Cho Thanh Viên tại <?php echo $title; ?> " />  
