@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://cuongphieu.com" target="_blank">
+                            <a href="http://configcsvn.blogspot.com" target="_blank">
                                Blog
                             </a>
                         </li>
@@ -21,7 +21,7 @@
                 </nav>
                 <p class="copyright pull-right">
                    Copyright © <script>document.write(new Date().getFullYear())</script>
-				   <a href="/"><?php echo $title; ?></a>, Bản Quyển Phiên Bản Viết bởi Cường Phiêu!
+				   <a href="/"><?php echo $title; ?></a>, Bản Quyển Phiên Bản BMN2312!
                 </p>
             </div>
         </footer>
