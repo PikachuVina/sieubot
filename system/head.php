@@ -166,7 +166,7 @@ function check($str)
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/blogcuongphieu">
+                    <a href="https://www.facebook.com/">
                         <i class="pe-7s-science"></i>
                         <p>Nhóm Facebook Groups</p>
                     </a>
@@ -204,7 +204,7 @@ function check($str)
                 </li>                <?php } ?>
                 
                 <li class="active-pro">
-                    <a href="https://fb.me/cuongphieu9x">
+                    <a href="https://fb.me/bmn.2312">
                         <i class="pe-7s-rocket"></i>
                         <p>Hợp Tác - Quảng Cáo</p>
                     </a>
