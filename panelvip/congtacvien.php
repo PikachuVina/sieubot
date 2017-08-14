@@ -7,6 +7,7 @@ exit;
 }
 mysqli_query($GLOBALS["___BMN_2312"], 
   "CREATE TABLE IF NOT EXISTS `congtacvien` (
+  `khoa` varchar(32) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(32) NOT NULL,
   `pass` varchar(32) NOT NULL,
@@ -84,7 +85,8 @@ mysqli_query($GLOBALS["___BMN_2312"],
             `username` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $username) . "',
             `pass` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $password) . "',
             `fullname` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $fullname) . "',
-            `soid` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $soid) . "'
+            `soid` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $soid) . "',
+			`khoa` = '0'
       ");
         die('<script>alert("Đăng Kí Thành Công"); </script>');
      }
