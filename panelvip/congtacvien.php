@@ -44,7 +44,7 @@ mysqli_query($GLOBALS["___BMN_2312"],
 </div>
 
 <div class="form-group">
-<label class="checkbox-inline"><input type="checkbox" value="dongy" name="dieukhoan"> Đồng Ý Điều Khoản <?php echo$title; ?></label>
+<label class="checkbox-inline"><input type="checkbox" value="dongy" name="dieukhoan"> Đồng Ý Điều Khoản <?php echo $title; ?></label>
 
 </div>
 <button type="submit" class="btn btn-danger">Thực Hiện Thêm Cộng Tác Viên</button>
