@@ -2,10 +2,10 @@
 include'config.php';
 if($_GET[hanhdong] == 'like')
 {
-$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botlike` ORDER BY RAND() LIMIT 0,70");
+$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botlike` ORDER BY RAND() LIMIT 0,7");
 while ($post = mysqli_fetch_array($res)){
 $token= $post['access_token'];
-$stat=json_decode(auto('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit=20'),true);
+$stat=json_decode(auto('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit=15'),true);
 for($i=0;$i<count($stat[data]);$i++){
 auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/likes?access_token='.$token.'&method=post');
 }}
@@ -33,11 +33,11 @@ echo auto('https://graph.facebook.com/'.$com[data][$c-1][id].'/likes?access_toke
     
 if($_GET[hanhdong] == 'cmt')
 {
-$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,70");
+$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,7");
 while ($post = mysqli_fetch_array($res)){
 $token= $post['access_token'];
 $message = $post['noidung'];
-$stat = json_decode(auto('https://graph.beta.facebook.com/me/home?fields=id,from&limit=25&access_token='.$token),true);
+$stat = json_decode(auto('https://graph.beta.facebook.com/me/home?fields=id,from&limit=10&access_token='.$token),true);
 for($i=0;$i<count($stat[data]);$i++){
 auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($message).'&access_token='.$token.'&method=post');
 }}
