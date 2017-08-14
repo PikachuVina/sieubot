@@ -15,7 +15,7 @@ exit;
 
 
 <?php
-$dem = mysqli_num_rows(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcomment` where `user_id`='".$_SESSION['id']."' "), 0);
+$dem = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcomment` where `user_id`='".$_SESSION['id']."' "));
 if($dem == 0) {
     echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
 } else {    

