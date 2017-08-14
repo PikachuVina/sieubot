@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-error_reporting(E_ALL);
+
 //***Ghi Chú***//
 $title = 'Nghia.ML';
 $hometitle = 'Nghia.ML - AutoBot Cảm Xúc - Thả Thính Online';
@@ -90,13 +90,13 @@ function check($str)
 -->
 <?php
 
-    
+    /*
 // RESET thành viên VIP Khi Quá Hạn Sử Dụng
     $time = time();
     $timelike = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `idvip`");
     if(time() > $timelike['tgvip']){
     mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `idvip` WHERE `tgvip` < '.$time.'");
-    }
+    }*/
 ?>
 
 <!DOCTYPE html>
