@@ -295,5 +295,3 @@ function check($str)
                 </div>
             </div>
         </nav>
-
-

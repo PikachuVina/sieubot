@@ -1,5 +1,5 @@
 <?php
-//include '../system/head.php';
+include '../system/head.php';
 ?>
         <div class="content">
             <div class="container-fluid">
