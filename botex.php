@@ -23,7 +23,7 @@ echo '<meta http-equiv=refresh content="0; URL=/botex.php">';
             <div class="container-fluid">
                 <div class="row">
 <?php
-$dem = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select count(*) from `botex` where `user_id`='".$_SESSION['id']."' "));
+$dem = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botex` where `user_id`='".$_SESSION['id']."' "));
 if($dem == 0) {
     echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài BotEx Trên Hệ Thống Like.BigMMO.Com</center></div>';
 } else {    

@@ -20,7 +20,7 @@ if($dem == 0) {
     echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
 } else {    
     echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
-    echo '<div class="alert alert"><center><a href="/TOMCMT.php?xoa"><button class="btn btn-danger">Hủy Cài BOT</button></a></center></div>';
+    echo '<div class="alert alert"><center><a href="/TOMCMT.php?xoa=NghiaML"><button class="btn btn-danger">Hủy Cài BOT</button></a></center></div>';
 }
 ?>
 
