@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-
+error_reporting(E_ALL);
 //***Ghi Chú***//
 $title = 'Nghia.ML';
 $hometitle = 'Nghia.ML - AutoBot Cảm Xúc - Thả Thính Online';
