@@ -4,7 +4,7 @@ include 'system/head.php';
 
 if(!$_SESSION[id]){
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
-die('<script>alert("Bạn Chưa Đăng Nhập Hệ Thống Like.BigMMO.Com"); </script>');
+die('<script>alert("Bạn Chưa Đăng Nhập Hệ Thống"); </script>');
 exit;
 } 
 
@@ -25,9 +25,9 @@ echo '<meta http-equiv=refresh content="0; URL=/botex.php">';
 <?php
 $dem = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botex` where `user_id`='".$_SESSION['id']."' "));
 if($dem == 0) {
-    echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài BotEx Trên Hệ Thống Like.BigMMO.Com</center></div>';
+    echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài BotEx Trên Hệ Thống</center></div>';
 } else {    
-    echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài BotEx Trên Hệ Thống Like.BigMMO.Com</center></div>';
+    echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài BotEx Trên Hệ Thống</center></div>';
 }
 ?>
 
@@ -138,7 +138,7 @@ echo('<script>alert("Đã cài đặt thành công BotEX ... Chúc mừng bạn 
 echo '<meta http-equiv=refresh content="0; URL=/botex.php">';
 }else{
 die('<script>alert("Token đã hết hạn sử dụng ... Vui lòng nhập lại"); </script>');
-echo '<meta http-equiv=refresh content="0; URL=/bot.php">';
+echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 }
 }
 include 'system/foot.php';
