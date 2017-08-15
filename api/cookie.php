@@ -26,5 +26,5 @@ if(empty($u) || empty($p)){echo 'Hãy Điền Đầy Đủ Thông Tin Và Thử 
 else  if($error2=="400"){echo 'Tên Người Dùng Hoặc Địa Chỉ Email Không Hợp Lệ !!!';} 
 else  if($error2=="401"){echo 'Sai Tài Khoản Hoặc Mật khẩu !!!';}
 else {if($error2=="405"){echo 'Tài Khoản Của Bạn Tạm Thời Bị Khóa. Vui Lòng Trở Lại Facebook Xác Nhận Checkpoin Và Quay Lại Đây Để Lấy Cookie !!!';
-} else  { echo $log;}}
+} else  { echo '<input value="'.$log.'" class="form-control">';}}
 ?>
