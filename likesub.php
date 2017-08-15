@@ -18,14 +18,7 @@ if($_POST['type'] == 'like')
 {
 $spam2 = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `autolike` WHERE `iduser`='".$iduser."'"),  0);
 if($spam2 == 0){
-mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `autolike` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `iduser` varchar(32) NOT NULL,
-      `time` varchar(32) NOT NULL,
-      `idlike` varchar(255) NOT NULL,
-      PRIMARY KEY (`id`)
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-   ");
+
    mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             autolike
@@ -62,14 +55,7 @@ if($kiemtra.success==false) {
 
     $spam2 = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `autosub` WHERE `iduser`='".$iduser."'"),  0);
 if($spam2 == 0){
-mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `autosub` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `iduser` varchar(32) NOT NULL,
-      `time` varchar(32) NOT NULL,
-      `idlike` varchar(255) NOT NULL,
-      PRIMARY KEY (`id`)
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-   ");
+
    mysqli_query($GLOBALS["___BMN_2312"], 
          "INSERT INTO 
             autosub

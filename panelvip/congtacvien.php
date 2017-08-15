@@ -5,16 +5,6 @@ echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 die('<script>alert("Không Phận Sự Miễn Vào"); </script>');
 exit;
 }
-mysqli_query($GLOBALS["___BMN_2312"], 
-  "CREATE TABLE IF NOT EXISTS `congtacvien` (
-  `khoa` varchar(32) NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) NOT NULL,
-  `pass` varchar(32) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
-  `soid` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
 ?>
 
       <div class="content">

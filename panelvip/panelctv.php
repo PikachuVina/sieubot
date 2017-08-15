@@ -28,25 +28,7 @@ exit;
             <div class="container-fluid">
 <div class="row">
 <div class="col-md-12">
-<?php
-
-mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `idvip` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `id_user` varchar(32) NOT NULL,
-      `limitlike` varchar(32) NOT NULL,      
-      `liketrungbinh` varchar(32) NOT NULL,            
-      `limitpost` varchar(32) NOT NULL,
-      `camxuc` varchar(32) NOT NULL,
-      PRIMARY KEY (`id`)
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-   ");
-mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `log_gioihan` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `id_user` varchar(32) NOT NULL,
-      `id_stt` varchar(32) NOT NULL, 
-      PRIMARY KEY (`id`)
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-   ");     
+<?php    
 
 echo'<div class="content">
     <div class="card">

