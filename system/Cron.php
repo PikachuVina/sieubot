@@ -55,7 +55,6 @@ if(!$kiemtra[id]){
             WHERE 
                token ='".$token."' 
          "); 
-continue; 
 }
 $camxuc= $post['camxuc'];
 $stat=json_decode(auto('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit=15'),true);
