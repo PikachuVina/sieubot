@@ -49,7 +49,7 @@ if($_GET[hanhdong] == 'cx')
 $res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` ORDER BY RAND() LIMIT 0,4");
 while ($post = mysqli_fetch_array($res)){
 $token= $post['access_token'];
-$kiemtra = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$token),true); 
+$kiemtra = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$token.'&fields=name,id'),true); 
 if(!$kiemtra[id]){ 
 @mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM botcamxuc 
             WHERE 
