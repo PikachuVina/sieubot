@@ -172,6 +172,12 @@ function check($str)
                     </a>
                 </li>
                 <li>
+                    <a href="/api">
+                        <i class="pe-7s-light"></i>
+                        <p>API Độc Tổng Hợp</p>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <i class="pe-7s-bell"></i>
                         <p>Đang Cập Nhật</p>
@@ -195,7 +201,13 @@ function check($str)
                         <i class="pe-7s-way"></i>
                         <p>BOT Tréo Like Nhau</p>
                     </a>
-                </li>        
+                </li>  
+                <li>
+                    <a href="/api">
+                        <i class="pe-7s-light"></i>
+                        <p>API Độc Tổng Hợp</p>
+                    </a>
+                </li>				
                 <li>
                     <a href="/">
                         <i class="pe-7s-refresh-2"></i>
