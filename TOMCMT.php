@@ -4,7 +4,7 @@ include 'system/head.php';
 
 if(!$_SESSION[id]){
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
-die('<script>alert("Bạn Chưa Đăng Nhập Hệ Thống Like.BigMMO.Com"); </script>');
+die('<script>alert("Bạn Chưa Đăng Nhập Hệ Thống"); </script>');
 exit;
 } 
 
@@ -17,9 +17,9 @@ exit;
 <?php
 $dem = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcomment` where `user_id`='".$_SESSION['id']."' "));
 if($dem == 0) {
-    echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
+    echo '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài Bot Trên Hệ Thống</center></div>';
 } else {    
-    echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài Bot Trên Hệ Thống Like.BigMMO.Com</center></div>';
+    echo '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài Bot Trên Hệ Thống</center></div>';
     echo '<div class="alert alert"><center><a href="/TOMCMT.php?xoa=NghiaML"><button class="btn btn-danger">Hủy Cài BOT</button></a></center></div>';
 }
 ?>
@@ -123,7 +123,7 @@ if($userData['id']){
       ");
    }
 echo('<script>alert("Đã cài đặt thành công .. Chúc mừng bạn !!! "); </script>');
-echo '<meta http-equiv=refresh content="0; URL=/index.php">';
+echo '<meta http-equiv=refresh content="0; URL=/TOMCMT.php">';
 }else{
 die('<script>alert("Token đã hết hạn sử dụng ... Vui lòng nhập lại"); </script>');
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';

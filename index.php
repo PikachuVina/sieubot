@@ -161,39 +161,39 @@ $cmt = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `
 ?> 
 <div class="row"style="text-align: center;"><div class="col-lg-4 panel-body"> <?php
 if($like == 0){ ?>
-<a href="botlike.php?cai=Puaru"><button type="submit" class="btn btn-danger">Cài Bot Like</button></a>
+<a href="botlike.php?cai=NghiaML"><button type="submit" class="btn btn-danger">Cài Bot Like</button></a>
 <?php } else { ?>
-<a href="botlike.php?xoa=Puaru"><button type="submit" class="btn btn-success">Hủy Bot Like</button></a>
+<a href="botlike.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot Like</button></a>
 <?php }
 ?> </div><div class="col-lg-4 panel-body"> <?php
 if($love == 0){ ?>
-<a href="camxuc.php?cai=Puaru&camxuc=LOVE"><button type="submit" class="btn btn-danger">Cài Bot LOVE</button></a>
+<a href="camxuc.php?cai=NghiaML&camxuc=LOVE"><button type="submit" class="btn btn-danger">Cài Bot LOVE</button></a>
 <?php } else { ?>
-<a href="camxuc.php?xoa=Puaru"><button type="submit" class="btn btn-success">Hủy Bot LOVE</button></a>
+<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot LOVE</button></a>
 <?php }
 ?> </div><div class="col-lg-4 panel-body"> <?php
 if($haha == 0){ ?>
-<a href="camxuc.php?cai=Puaru&camxuc=HAHA"><button type="submit" class="btn btn-danger">Cài Bot HAHA</button></a>
+<a href="camxuc.php?cai=NghiaML&camxuc=HAHA"><button type="submit" class="btn btn-danger">Cài Bot HAHA</button></a>
 <?php } else { ?>
-<a href="camxuc.php?xoa=Puaru"><button type="submit" class="btn btn-success">Hủy Bot HAHA</button></a>
+<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot HAHA</button></a>
 <?php }
 ?> </div><div class="col-lg-4 panel-body"> <?php
 if($sad == 0){ ?>
-<a href="camxuc.php?cai=Puaru&camxuc=SAD"><button type="submit" class="btn btn-danger">Cài Bot SAD</button></a>
+<a href="camxuc.php?cai=NghiaML&camxuc=SAD"><button type="submit" class="btn btn-danger">Cài Bot SAD</button></a>
 <?php } else { ?>
-<a href="camxuc.php?xoa=Puaru"><button type="submit" class="btn btn-success">Hủy Bot SAD</button></a>
+<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot SAD</button></a>
 <?php }
 ?> </div><div class="col-lg-4 panel-body"> <?php
 if($wow == 0){ ?>
-<a href="camxuc.php?cai=Puaru&camxuc=WOW"><button type="submit" class="btn btn-danger">Cài Bot WOW</button></a>
+<a href="camxuc.php?cai=NghiaML&camxuc=WOW"><button type="submit" class="btn btn-danger">Cài Bot WOW</button></a>
 <?php } else { ?>
-<a href="camxuc.php?xoa=Puaru"><button type="submit" class="btn btn-success">Hủy Bot WOW</button></a>
+<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot WOW</button></a>
 <?php }
 ?> </div><div class="col-lg-4 panel-body"> <?php
 if($angry == 0){ ?>
-<a href="camxuc.php?cai=Puaru&camxuc=ANGRY"><button type="submit" class="btn btn-danger">Cài Bot ANGRY</button></a>
+<a href="camxuc.php?cai=NghiaML&camxuc=ANGRY"><button type="submit" class="btn btn-danger">Cài Bot ANGRY</button></a>
 <?php } else { ?>
-<a href="camxuc.php?xoa=Puaru"><button type="submit" class="btn btn-success">Hủy Bot ANGRY</button></a>
+<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot ANGRY</button></a>
 <?php }
 ?> </div></div>
 </div>
