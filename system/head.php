@@ -250,7 +250,7 @@ function check($str)
                                     </p>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="https://like1phut.com">BotLike No.1 Việt Nam!</a></li>
+                                <li><a href="https://nghĩa.vn">BotLike No.1 Việt Nam!</a></li>
                                 <li><a href="#"><?php echo $title; ?></a></li>
                               </ul>
                         </li>
