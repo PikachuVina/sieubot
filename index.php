@@ -185,7 +185,7 @@ $key = 0;
 			<div class="form-group">
 				<button class="btn btn-success" id="botcamxuc" onclick="post_BotCamXuc();"> Cài Đặt Bot </button>
 			</div>
-<li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây. </div>
+<li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây.
       </div>
       <script>
 function post_BotCamXuc() {
@@ -208,7 +208,6 @@ http.send(params);
 </script>      
 		</div>
 	</div>
-</div></div>
 
 <div class="col-md-12">
                         <div class="card">
