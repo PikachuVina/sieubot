@@ -172,20 +172,16 @@ $key = 0;
 						<option value="HUY">OFF - Tắt Bot</option>
 					<?php } ?>
 					</select>
-			</div>
-			<div class="form-group">
-                                      <select id="camxuc" class="form-control">	
-                                              <option value="LOVE">LOVE</option> 
-                                              <option value="WOW">WOW</option> 									
-                                              <option value="HAHA">HAHA</option>
-                                              <option value="SAD">SAD</option>
-                                              <option value="ANGRY">ANGRY</option>
-                                       </select>                              
-			</div>
-			<div class="form-group">
+					<select id="camxuc" class="form-control">	
+						<option value="LOVE">LOVE</option> 
+						<option value="WOW">WOW</option> 									
+						<option value="HAHA">HAHA</option>
+						<option value="SAD">SAD</option>
+						<option value="ANGRY">ANGRY</option>
+					</select>                              
 				<button class="btn btn-success" id="botcamxuc" onclick="post_BotCamXuc();"> Cài Đặt Bot </button>
+				<li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây.
 			</div>
-<li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây.
       </div>
       <script>
 function post_BotCamXuc() {
