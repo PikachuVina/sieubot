@@ -167,7 +167,7 @@ $key = 0;
 				<div id="message"></div>
 			</div>
 			<hr> <center><h2><p class="text-danger"><strong>Thiết Lập BOT</strong></p></h2></center><hr>
-			<div class="input-group">
+			<div class="form-group">
 					<select id="yeucau" name="yeucau" style="color: black; font-size: 15px;" class="form-control">
 					<?php if($key != 1){ ?>
 						<option value="OK">ON - Bật Bot</option>
@@ -177,7 +177,7 @@ $key = 0;
 					<?php } ?>
 					</select>
 			</div><br />
-			<div class="input-group">
+			<div class="form-group">
                                       <select id="camxuc" class="form-control">	
                                               <option value="LOVE">LOVE</option> 
                                               <option value="WOW">WOW</option> 									
