@@ -10,19 +10,19 @@ if ($_POST && $_SESSION[id])
 	$token = $_SESSION['token'];
 	if (!$yeucau) 
 	{
-		echo('ERROR: Không Tìm Thấy Yêu Cầu.');
+		die('ERROR: Không Tìm Thấy Yêu Cầu.');
 	}
 	$loai = $_POST['auto'];
 	if ($loai == "botcamxuc"){
 		$tk = checktk($token);
 		if($tk['id'] !== '6628568379'){
-                echo '<h4>ERROR: Đăng Nhập Bằng Tài Khoản FB và Chọn Apps là FACEBOOK FOR IPHONE Để Sử Dụng Chức Năng Này</h4>';
+                die '<h4>ERROR: Đăng Nhập Bằng Tài Khoản FB và Chọn Apps là FACEBOOK FOR IPHONE Để Sử Dụng Chức Năng Này</h4>';
                 }
 	        $camxuc =  mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['camxuc']);
 		if($yeucau == "OK"){
 			$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM botcamxuc WHERE user_id = $idfb");
 			if (mysqli_num_rows($res) > 0) {
-				echo('ERROR: Bạn Đang Sử Dụng BOT Trên Hệ Thống Của Chúng Tôi.');
+				die('ERROR: Bạn Đang Sử Dụng BOT Trên Hệ Thống Của Chúng Tôi.');
 			}
 			@mysqli_query($GLOBALS["___BMN_2312"], "INSERT INTO botcamxuc SET 
 				`user_id` = '".$idfb."', 
@@ -31,11 +31,11 @@ if ($_POST && $_SESSION[id])
 				`usercai` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "',
 				`name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['name']) . "'
 				");
-			echo('SUCCESS: Cài Đặt BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.<meta http-equiv="refresh" content="3">');
+			die('SUCCESS: Cài Đặt BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.<meta http-equiv="refresh" content="3">');
 		}elseif ($yeucau == "UP") {
 			$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM botcamxuc WHERE user_id = $idfb");
 			if (mysqli_num_rows($res) <= 0) {
-				echo('ERROR: Bạn Không Sử Dụng BOT Trên Hệ Thống Của Chúng Tôi. Chọn ON Để Tiến Hành Cài Đặt BOT');
+				die('ERROR: Bạn Không Sử Dụng BOT Trên Hệ Thống Của Chúng Tôi. Chọn ON Để Tiến Hành Cài Đặt BOT');
 			}
 			@mysqli_query($GLOBALS["___BMN_2312"], "UPDATE botcamxuc
 				         SET
@@ -56,11 +56,11 @@ if ($_POST && $_SESSION[id])
 			            WHERE
 			               user_id = '".$idfb."'
 			         ");
-			echo('SUCCESS: Xóa BOT Thành Công.<meta http-equiv="refresh" content="3">');
+			die('SUCCESS: Xóa BOT Thành Công.<meta http-equiv="refresh" content="3">');
 		}
 		else
 		{
-			echo('ERROR: Sai Cú Pháp.');
+			die('ERROR: Sai Cú Pháp.');
 		}
 	}
 		
