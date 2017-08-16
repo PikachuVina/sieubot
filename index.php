@@ -150,12 +150,12 @@ $key = 0;
 }
 ?>
 <div class="col-md-12">
-	<div class="box box-success">
-		<div class="box-title box-header with-border">
+	<div class="card">
+		<div class="header">
 			<h4><i class="fa fa-thumbs-up" aria-hidden="true"></i> Bot Reactions - Robot Tự Động Cảm Xúc</h4>
 			
 		</div>
-		<div class="box-body">
+		<div class="content">
 			<div class="alert alert-info" style="font-size: 15px; background-color: rgba(157, 248, 89, 0.62); border-color: rgba(157, 248, 89, 0.62);">
                               		<?php echo ($key == 1) ? 'Chào Bạn<strong> '.$_SESSION[name].'</strong>. Hiện Tại Bạn <strong style="color: red; font-size: 15px;"> Đã </strong> Cài Đặt Bot Trên Hệ Thống' : 'Chào Bạn <strong>'.$_SESSION[ten].'</strong>. Hiện Tại Bạn <strong style="color: red; font-size: 15px;"> Chưa </strong> Cài Đặt Bot Trên Hệ Thống'; ?>
                            	</div>
@@ -201,10 +201,6 @@ $key = 0;
 				<span class="input-group-addon"><i class="fa fa-paste"></i>
 				</span>                               
 			</div><br />
-			<? $_SESSION['_SERVER'] = cap(30); ?>
-			<input type="hidden" name="_SERVER" id="_SERVER" value="<? echo $_SESSION['_SERVER']; ?>">
-			<input type="hidden" class="form-control" id="id" name="idfb" value="<?php echo $_SESSION[idfb]; ?>">
-			<input type="hidden" class="form-control" id="token" name="token" value="<?php echo $_SESSION[matoken]; ?>" />
 			<div class="form-group">
 				<button class="btn btn-success btn-block" id="botcamxuc" onclick="post_BotCamXuc();">
 					<i class="fa fa-exchange"></i> Thực Thi
