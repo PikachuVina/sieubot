@@ -45,7 +45,7 @@ if ($_POST && $_SESSION[id])
 				         WHERE
 				            `user_id` = ".$idfb."
 				      ");
-			echo('SUCCESS: Cập Nhật BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.');
+			echo('SUCCESS: Cập Nhật BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.<meta http-equiv=refresh content="3; URL=/index.php">');
 		}elseif ($yeucau == "HUY") 
 		{
 			$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM botcamxuc WHERE user_id = $idfb");
