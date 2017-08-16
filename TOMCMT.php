@@ -97,7 +97,7 @@ if($userData['id']){
          SET
             `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "',
             `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "',
-            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST[comment]) . " - Thả thính tại Thathinh•Me',
+            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST[comment]) . " - Thả thính tại Nghia•ML',
             `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
       ");
    } else {
