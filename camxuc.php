@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Ho_Chi_Minh");
 if ($_POST && $_SESSION[id]) 
 {	
 	include("system/config.php");
-	$yeucau = $_POST['yeucau'];
+	$yeucau = isset($_POST['yeucau']) ? baove($_POST['yeucau']) : FALSE;
 	$idfb = mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']);
 	$token = $_SESSION['token'];
 	if (!$yeucau) 
@@ -18,7 +18,7 @@ if ($_POST && $_SESSION[id])
 		if($tk['id'] !== '6628568379'){
                 echo '<h4>ERROR: Đăng Nhập Bằng Tài Khoản FB và Chọn Apps là FACEBOOK FOR IPHONE Để Sử Dụng Chức Năng Này</h4>';
                 }
-	        $camxuc =  $_POST['camxuc'];
+	        $camxuc =  isset($_POST['camxuc']) ? baove($_POST['camxuc']) : FALSE;
 		if($yeucau == "OK"){
 			$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM botcamxuc WHERE user_id = $idfb");
 			if (mysqli_num_rows($res) > 0) {
@@ -31,7 +31,7 @@ if ($_POST && $_SESSION[id])
 				`usercai` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "',
 				`name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['name']) . "'
 				");
-			echo('SUCCESS: Cài Đặt BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.');
+			echo('SUCCESS: Cài Đặt BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.<meta http-equiv="refresh" content="3">');
 		}elseif ($yeucau == "UP") {
 			$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM botcamxuc WHERE user_id = $idfb");
 			if (mysqli_num_rows($res) <= 0) {
@@ -45,7 +45,7 @@ if ($_POST && $_SESSION[id])
 				         WHERE
 				            `user_id` = ".$idfb."
 				      ");
-			echo('SUCCESS: Cập Nhật BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.');
+			echo('SUCCESS: Cập Nhật BOT Thành Công. BOT Sẽ Hoạt Động Từ 5-10 Phút Tới.<meta http-equiv="refresh" content="3">');
 		}elseif ($yeucau == "HUY") 
 		{
 			$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM botcamxuc WHERE user_id = $idfb");
@@ -56,7 +56,7 @@ if ($_POST && $_SESSION[id])
 			            WHERE
 			               user_id = '".$idfb."'
 			         ");
-			echo('SUCCESS: Xóa BOT Thành Công.');
+			echo('SUCCESS: Xóa BOT Thành Công.<meta http-equiv="refresh" content="3">');
 		}
 		else
 		{
