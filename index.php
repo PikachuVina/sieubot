@@ -194,26 +194,18 @@ $key = 0;
 		</div>
 		<script>
 		function post_BotCamXuc() {
-    ids = document.getElementById('id').value;
     camxucs = document.getElementById('camxuc').value;
-    likecmts = document.getElementById('likecmt').value;
     yeucaus = document.getElementById('yeucau').value;
-    server = document.getElementById('_SERVER').value;
     autos = 'botcamxuc';
-    tokens = document.getElementById('token').value;
     document.getElementById("botcamxuc").disabled = true;
     $("#botcamxuc").html('<i class="fa fa-refresh fa-spin"></i> Đang Tiến Hành');
     $("#message").html("");
     $('#star').show();
     log('<i class="fa fa-spinner fa-pulse"></i> Quá Trình Cài Đặt Đang Diễn Ra, Vui Lòng Đợi ... ')
-    $.post('modun/post_bot.php', {
-        id: ids,
+    $.post('camxuc.php', {
         yeucau: yeucaus,
-        token: tokens,
-        _SERVER: server,
         auto: autos,
         camxuc: camxucs,
-        likecmt: likecmts
     }, function(data, status) {
         log(data);
         $("#botcamxuc").html('<i class="fa fa-exchange"></i> Thực Thi');

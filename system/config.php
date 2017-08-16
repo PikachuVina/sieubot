@@ -56,6 +56,9 @@ function check($str)
 
         return $str;
     }
+function checktk($thienbk){ 
+return json_decode(auto('https://graph.facebook.com/app/?access_token='.$thienbk), true); 
+} 
 
 
 
