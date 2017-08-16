@@ -161,8 +161,7 @@ $key = 0;
                            	</div>
 			<div class="alert alert-warning" style="background-color: rgba(245, 215, 66, 0.32); border-color: rgba(245, 215, 66, 0.32);">
 				<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Bot Cảm Xúc Status, Ảnh : <font color ="blue"><?php echo ($key == 1) ? "Hoạt Động" : "Không Sử Dụng";?> </font></span><br />
-                    			<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Bot Cảm Xúc Comment : <font color ="blue"><?php echo $getcmt[likecmt] == 1 ? "Hoạt Động " : "Không Sử Dụng"; ?></font></span><br />
-                    			<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Loại Cảm Xúc Sử Dụng : <font color ="blue"><?php echo $getcmt[camxuc] ? $getcmt[camxuc] : "Chưa Cài Đặt"; ?></font></span>
+                <span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Loại Cảm Xúc Sử Dụng : <font color ="blue"><?php echo $getcmt[camxuc] ? $getcmt[camxuc] : "Chưa Cài Đặt"; ?></font></span>
 			</div>
 			<div class="alert alert-info" id="star" style="display: none;">
 				<div id="message"></div>
