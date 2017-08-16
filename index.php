@@ -140,65 +140,109 @@
 <?php } else { ?>
 <!-- Nội Dung Khi Đăng Nhập -->
 
+<?php  
+$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `user_id`= '".$iduser."'");
+$getcmt = @mysqli_fetch_array($res); 
+if(@mysqli_num_rows($res) > 0){ 
+$key = 1;
+}else{
+$key = 0;
+}
+?>
 <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title"><i class="pe-7s-user" style="margin-right: 5px;"></i> Cài Bot cho Bản Thân</h4>
-                            </div>
-                            <div class="content">
-                            
-<div class="form-group">
-            <label for="usr">Cài Cho Bản Thân:</label><br>
-<?php
-$iduser=$_SESSION['id'];
-$like = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botlike` where `user_id`='$iduser' "));
-$love = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='LOVE' "));
-$haha = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='HAHA' "));
-$sad = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='SAD' "));
-$wow = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='WOW' "));
-$angry = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcamxuc` where `user_id`='$iduser' && `camxuc` ='ANGRY' "));
-$cmt = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "select * from `botcomment` where `user_id`='$iduser'"));
-?> 
-<div class="row"style="text-align: center;"><div class="col-lg-4 panel-body"> <?php
-if($like == 0){ ?>
-<a href="botlike.php?cai=NghiaML"><button type="submit" class="btn btn-danger">Cài Bot Like</button></a>
-<?php } else { ?>
-<a href="botlike.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot Like</button></a>
-<?php }
-?> </div><div class="col-lg-4 panel-body"> <?php
-if($love == 0){ ?>
-<a href="camxuc.php?cai=NghiaML&camxuc=LOVE"><button type="submit" class="btn btn-danger">Cài Bot LOVE</button></a>
-<?php } else { ?>
-<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot LOVE</button></a>
-<?php }
-?> </div><div class="col-lg-4 panel-body"> <?php
-if($haha == 0){ ?>
-<a href="camxuc.php?cai=NghiaML&camxuc=HAHA"><button type="submit" class="btn btn-danger">Cài Bot HAHA</button></a>
-<?php } else { ?>
-<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot HAHA</button></a>
-<?php }
-?> </div><div class="col-lg-4 panel-body"> <?php
-if($sad == 0){ ?>
-<a href="camxuc.php?cai=NghiaML&camxuc=SAD"><button type="submit" class="btn btn-danger">Cài Bot SAD</button></a>
-<?php } else { ?>
-<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot SAD</button></a>
-<?php }
-?> </div><div class="col-lg-4 panel-body"> <?php
-if($wow == 0){ ?>
-<a href="camxuc.php?cai=NghiaML&camxuc=WOW"><button type="submit" class="btn btn-danger">Cài Bot WOW</button></a>
-<?php } else { ?>
-<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot WOW</button></a>
-<?php }
-?> </div><div class="col-lg-4 panel-body"> <?php
-if($angry == 0){ ?>
-<a href="camxuc.php?cai=NghiaML&camxuc=ANGRY"><button type="submit" class="btn btn-danger">Cài Bot ANGRY</button></a>
-<?php } else { ?>
-<a href="camxuc.php?xoa=NghiaML"><button type="submit" class="btn btn-success">Hủy Bot ANGRY</button></a>
-<?php }
-?> </div></div>
-</div>
-            </div>
-        </div>  
+	<div class="box box-success">
+		<div class="box-title box-header with-border">
+			<h4><i class="fa fa-thumbs-up" aria-hidden="true"></i> Bot Reactions - Robot Tự Động Cảm Xúc</h4>
+			
+		</div>
+		<div class="box-body">
+			<div class="alert alert-info" style="font-size: 15px; background-color: rgba(157, 248, 89, 0.62); border-color: rgba(157, 248, 89, 0.62);">
+                              		<?php echo ($key == 1) ? 'Chào Bạn<strong> '.$_SESSION[name].'</strong>. Hiện Tại Bạn <strong style="color: red; font-size: 15px;"> Đã </strong> Cài Đặt Bot Trên Hệ Thống' : 'Chào Bạn <strong>'.$_SESSION[ten].'</strong>. Hiện Tại Bạn <strong style="color: red; font-size: 15px;"> Chưa </strong> Cài Đặt Bot Trên Hệ Thống'; ?>
+                           	</div>
+			<div class="alert alert-warning" style="background-color: rgba(245, 215, 66, 0.32); border-color: rgba(245, 215, 66, 0.32);">
+				<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Bot Cảm Xúc Status, Ảnh : <font color ="blue"><?php echo ($key == 1) ? "Hoạt Động" : "Không Sử Dụng";?> </font></span><br />
+                    			<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Bot Cảm Xúc Comment : <font color ="blue"><?php echo $getcmt[likecmt] == 1 ? "Hoạt Động " : "Không Sử Dụng"; ?></font></span><br />
+                    			<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Loại Cảm Xúc Sử Dụng : <font color ="blue"><?php echo $getcmt[camxuc] ? $getcmt[camxuc] : "Chưa Cài Đặt"; ?></font></span>
+			</div>
+			<div class="alert alert-info" id="star" style="display: none;">
+				<div id="message"></div>
+			</div>
+			<hr> <center><h2><p class="text-danger"><strong>Thiết Lập BOT</strong></p></h2></center><hr>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-key"></i></span>
+					<select id="yeucau" name="yeucau" style="color: black; font-size: 15px;" class="form-control">
+					<?php if($key != 1){ ?>
+						<option value="OK">ON - Bật Bot</option>
+					<?php }else{ ?>
+						<option value="UP">UP - Cập Nhật Bot</option>
+						<option value="HUY">OFF - Tắt Bot</option>
+					<?php } ?>
+					</select>
+				<span class="input-group-addon"><i class="fa fa-key"></i></span>
+			</div><br />
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-key"></i></span>
+					<select id="likecmt" name="likecmt" style="color: black; font-size: 15px;" class="form-control">
+						<option value="1">ON - Bật Like Comment</option>	
+						<option value="0">OFF - Tắt Like Comment</option>								
+					</select>
+				<span class="input-group-addon"><i class="fa fa-key"></i></span>
+			</div><br />
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-paste"></i>
+				</span>
+                                      <select id="camxuc" class="form-control">	
+                                              <option value="LOVE">LOVE</option> 
+                                              <option value="WOW">WOW</option> 									
+                                              <option value="HAHA">HAHA</option>
+                                              <option value="SAD">SAD</option>
+                                              <option value="ANGRY">ANGRY</option>
+                                       </select> 
+				<span class="input-group-addon"><i class="fa fa-paste"></i>
+				</span>                               
+			</div><br />
+			<? $_SESSION['_SERVER'] = cap(30); ?>
+			<input type="hidden" name="_SERVER" id="_SERVER" value="<? echo $_SESSION['_SERVER']; ?>">
+			<input type="hidden" class="form-control" id="id" name="idfb" value="<?php echo $_SESSION[idfb]; ?>">
+			<input type="hidden" class="form-control" id="token" name="token" value="<?php echo $_SESSION[matoken]; ?>" />
+			<div class="form-group">
+				<button class="btn btn-success btn-block" id="botcamxuc" onclick="post_BotCamXuc();">
+					<i class="fa fa-exchange"></i> Thực Thi
+				</button>
+			</div>
+		</div>
+		<div class="box-footer">
+		</div>
+		<script>
+		function post_BotCamXuc() {
+    ids = document.getElementById('id').value;
+    camxucs = document.getElementById('camxuc').value;
+    likecmts = document.getElementById('likecmt').value;
+    yeucaus = document.getElementById('yeucau').value;
+    server = document.getElementById('_SERVER').value;
+    autos = 'botcamxuc';
+    tokens = document.getElementById('token').value;
+    document.getElementById("botcamxuc").disabled = true;
+    $("#botcamxuc").html('<i class="fa fa-refresh fa-spin"></i> Đang Tiến Hành');
+    $("#message").html("");
+    $('#star').show();
+    log('<i class="fa fa-spinner fa-pulse"></i> Quá Trình Cài Đặt Đang Diễn Ra, Vui Lòng Đợi ... ')
+    $.post('modun/post_bot.php', {
+        id: ids,
+        yeucau: yeucaus,
+        token: tokens,
+        _SERVER: server,
+        auto: autos,
+        camxuc: camxucs,
+        likecmt: likecmts
+    }, function(data, status) {
+        log(data);
+        $("#botcamxuc").html('<i class="fa fa-exchange"></i> Thực Thi');
+        document.getElementById("botcamxuc").disabled = false;
+    });
+}
+</script>
+	</div>
 </div>
 
 <div class="col-md-12">

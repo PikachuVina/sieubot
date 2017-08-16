@@ -1,15 +1,15 @@
 <?php
 session_start();
 include 'system/head.php';
-if($_GET[cai] && $_GET[camxuc])
+if($_POST[cai] && $_POST[camxuc])
 {
-   if($_GET[camxuc] == 'LOVE' || $_GET[camxuc] == 'HAHA' || $_GET[camxuc] == 'WOW' || $_GET[camxuc] == 'SAD' || $_GET[camxuc] == 'ANGRY')
+   if($_POST[camxuc] == 'LOVE' || $_POST[camxuc] == 'HAHA' || $_POST[camxuc] == 'WOW' || $_POST[camxuc] == 'SAD' || $_POST[camxuc] == 'ANGRY')
    {
 $token = $_SESSION[token];
 
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token),true);
 $com = "https://graph.facebook.com/me?fields=id,name&access_token=".$token;
-$ren = file_get_contents($com);
+$ren = file_POST_contents($com);
 
 if($userData['id']){
    $row = null;
@@ -43,7 +43,7 @@ if($userData['id']){
             `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "',
 
             `usercai` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "',
-            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET['camxuc']) . "',
+            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['camxuc']) . "',
             `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
       ");
    } else {
@@ -51,7 +51,7 @@ if($userData['id']){
          "UPDATE 
             `botcamxuc`
          SET
-            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET['camxuc']) . "',
+            `camxuc` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['camxuc']) . "',
             `usercai` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']) . "',
             `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
          WHERE
@@ -65,7 +65,7 @@ die('<script>alert("Token đã hết hạn sử dụng ... Vui lòng nhập lạ
 }
 }
 }
-if($_GET[xoa])
+if($_POST[xoa])
 {
    mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
