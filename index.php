@@ -183,13 +183,13 @@ $key = 0;
                                        </select>                              
 			</div>
 			<div class="form-group">
-				<button class="btn btn-success" id="botcamxuc" onclick="post_BotCamXuc();"> Cài Đặt Bot </button>
+				<button class="btn btn-danger" id="botcamxuc" onclick="NghiaML_Active();"> Cài Đặt Bot </button>
 			</div>
 			<div class="form-group">
 <li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây.</div>
       </div>
       <script>
-function post_BotCamXuc() {
+function NghiaML_Active() {
 var http = new XMLHttpRequest();
 var yeucau = document.getElementById("yeucau").value;
 var auto = document.getElementById("botcamxuc").value;
@@ -229,7 +229,7 @@ http.send(params);
   <option value="SAD">SAD</option>
   <option value="ANGRY">ANGRY</option>
 </select><br/>
-<button type="button" class="btn btn-success" onclick="Puaru_Active()" >Cài Đặt Bot</button><br/>
+<button type="button" class="btn btn-danger" onclick="Puaru_Active()" >Cài Đặt Bot</button><br/>
 <br/>
 <li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây. </div>
       </div>
