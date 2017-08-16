@@ -5,9 +5,9 @@ date_default_timezone_set("Asia/Ho_Chi_Minh");
 if ($_POST && $_SESSION[id]) 
 {	
 	include("system/config.php");
-	$yeucau = isset($_POST['yeucau']) ? baove($_POST['yeucau']) : FALSE;
+	$yeucau = $_POST['yeucau'];
 	$idfb = mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_SESSION['id']);
-	$token = $_SESSION[token];
+	$token = $_SESSION['token'];
 	if (!$yeucau) 
 	{
 		die('ERROR: Không Tìm Thấy Yêu Cầu.<script type="text/javascript">toarst("error","Chọn ON Để Bật Bot, UP Để Cập Nhật Bot, OFF Để Xoá Bot.","Thông Báo Lỗi")</script>');
@@ -19,7 +19,7 @@ if ($_POST && $_SESSION[id])
                 echo '<h4>ERROR: Đăng Nhập Bằng Tài Khoản FB và Chọn Apps là FACEBOOK FOR IPHONE Để Sử Dụng Chức Năng Này</h4>';
 		die('<script type="text/javascript">toarst("error","Bạn Vui Lòng Đăng Xuất.<br> Sau Đó Đăng Nhập Bằng Cách Sử Dụng Tài Khoản FB và Chọn Apps là FACEBOOK FOR IPHONE Để Sử Dụng Chức Năng Này.","Thông Báo Lỗi")</script>');
                 }
-	        $camxuc =  isset($_POST['camxuc']) ? baove($_POST['camxuc']) : FALSE;
+	        $camxuc =  $_POST['camxuc'];
 		if($yeucau == "OK"){
 			$res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM botcamxuc WHERE user_id = $idfb");
 			if (mysqli_num_rows($res) > 0) {
