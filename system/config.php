@@ -59,6 +59,13 @@ function check($str)
 function checktk($thienbk){ 
 return json_decode(auto('https://graph.facebook.com/app/?access_token='.$thienbk), true); 
 } 
+function baove($star){ 
+    $star = trim($star); 
+    $star = stripslashes($star); 
+    $star = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $star); 
+    return $star; 
+
+} 
 
 
 
