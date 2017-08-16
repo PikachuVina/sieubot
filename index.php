@@ -157,14 +157,12 @@ $key = 0;
 		</div>
 		<div class="content">
 			<div class="alert alert-info" style="font-size: 15px; background-color: rgba(157, 248, 89, 0.62); border-color: rgba(157, 248, 89, 0.62);">
-                              		<?php echo ($key == 1) ? 'Chào Bạn<strong> '.$_SESSION[name].'</strong>. Hiện Tại Bạn <strong style="color: red; font-size: 15px;"> Đã </strong> Cài Đặt Bot Trên Hệ Thống' : 'Chào Bạn <strong>'.$_SESSION[ten].'</strong>. Hiện Tại Bạn <strong style="color: red; font-size: 15px;"> Chưa </strong> Cài Đặt Bot Trên Hệ Thống'; ?>
+                              		<?php echo ($key == 1) ? '<div class="alert alert-success"><center><font color="red"> Hệ Thống:</font> Bạn Đã Cài Bot Trên Hệ Thống</center></div>' : '<div class="alert alert-warning"><center><font color="red"> Hệ Thống:</font> Bạn Chưa Cài Bot Trên Hệ Thống</center></div>'; ?>
                            	</div>
 			<div class="alert alert-warning" style="background-color: rgba(245, 215, 66, 0.32); border-color: rgba(245, 215, 66, 0.32);">
 				<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Bot Cảm Xúc Status, Ảnh : <font color ="blue"><?php echo ($key == 1) ? "Hoạt Động" : "Không Sử Dụng";?> </font></span><br />
                 <span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Loại Cảm Xúc Sử Dụng : <font color ="blue"><?php echo $getcmt[camxuc] ? $getcmt[camxuc] : "Chưa Cài Đặt"; ?></font></span>
 			</div>
-			<div class="alert alert-info" id="star" style="display: none;">
-				<div id="message"></div>
 			</div>
 			<hr>
 			<div class="form-group">
@@ -187,7 +185,7 @@ $key = 0;
                                        </select>                              
 			</div>
 			<div class="form-group">
-				<button class="btn btn-success" id="botcamxuc" onclick="post_BotCamXuc();"> Thực Thi </button>
+				<button class="btn btn-success" id="botcamxuc" onclick="post_BotCamXuc();"> Cài Đặt Bot </button>
 			</div>
 <li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây. </div>
       </div>
