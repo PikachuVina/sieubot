@@ -163,7 +163,7 @@ $key = 0;
 				<span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Bot Cảm Xúc Status, Ảnh : <font color ="blue"><?php echo ($key == 1) ? "Hoạt Động" : "Không Sử Dụng";?> </font></span><br />
                 <span style="color: black; font-size: 15px;"><i class="fa fa-reddit-square"></i> Loại Cảm Xúc Sử Dụng : <font color ="blue"><?php echo $getcmt[camxuc] ? $getcmt[camxuc] : "Chưa Cài Đặt"; ?></font></span>
 			</div>
-			</div>
+
 			<hr>
 			<div class="form-group">
 					<select id="yeucau" name="yeucau" style="color: black; font-size: 15px;" class="form-control">
