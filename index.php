@@ -189,30 +189,28 @@ $key = 0;
 			<div class="form-group">
 				<button class="btn btn-success" id="botcamxuc" onclick="post_BotCamXuc();"> Thực Thi </button>
 			</div>
-		</div>
-		<div class="box-footer">
-		</div>
-		<script>
-		function post_BotCamXuc() {
-    camxucs = document.getElementById('camxuc').value;
-    yeucaus = document.getElementById('yeucau').value;
-    autos = 'botcamxuc';
-    document.getElementById("botcamxuc").disabled = true;
-    $("#botcamxuc").html('<i class="fa fa-refresh fa-spin"></i> Đang Tiến Hành');
-    $("#message").html("");
-    $('#star').show();
-    log('<i class="fa fa-spinner fa-pulse"></i> Quá Trình Cài Đặt Đang Diễn Ra, Vui Lòng Đợi ... ')
-    $.post('camxuc.php', {
-        yeucau: yeucaus,
-        auto: autos,
-        camxuc: camxucs,
-    }, function(data, status) {
-        log(data);
-        $("#botcamxuc").html('<i class="fa fa-exchange"></i> Thực Thi');
-        document.getElementById("botcamxuc").disabled = false;
-    });
+<li id="trave" class="list-group-item">Kết Quả Cài Đặt Sẽ Thông Báo Tại Đây. </div>
+      </div>
+      <script>
+function post_BotCamXuc() {
+var http = new XMLHttpRequest();
+var yeucau = document.getElementById("yeucau").value;
+var auto = document.getElementById("botcamxuc").value;
+var camxuc = document.getElementById("camxuc").value;
+var url = "camxuc.php";
+var params = "yeucau="+yeucau+"&auto=botcamxuc&camxuc="+camxuc;
+http.open("POST", url, true);
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+http.onreadystatechange = function() {
+    if(http.readyState == 4 && http.status == 200) {
+      document.getElementById("trave").innerHTML = http.responseText;        
+    }
 }
-</script>
+http.send(params);
+}
+</script>      
+		</div>
 	</div>
 </div>
 
