@@ -152,8 +152,7 @@ $key = 0;
 <div class="col-md-12">
 	<div class="card">
 		<div class="header">
-			<h4><i class="fa fa-thumbs-up" aria-hidden="true"></i> Bot Reactions - Robot Tự Động Cảm Xúc</h4>
-			
+			<h4 class="title"><i class="pe-7s-user" style="margin-right: 5px;"></i> Cài Bot cho Bản Thân</h4>
 		</div>
 		<div class="content">
 			<div class="alert alert-info" style="font-size: 15px; background-color: rgba(157, 248, 89, 0.62); border-color: rgba(157, 248, 89, 0.62);">
@@ -169,7 +168,6 @@ $key = 0;
 			</div>
 			<hr> <center><h2><p class="text-danger"><strong>Thiết Lập BOT</strong></p></h2></center><hr>
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-key"></i></span>
 					<select id="yeucau" name="yeucau" style="color: black; font-size: 15px;" class="form-control">
 					<?php if($key != 1){ ?>
 						<option value="OK">ON - Bật Bot</option>
@@ -178,33 +176,18 @@ $key = 0;
 						<option value="HUY">OFF - Tắt Bot</option>
 					<?php } ?>
 					</select>
-				<span class="input-group-addon"><i class="fa fa-key"></i></span>
 			</div><br />
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-key"></i></span>
-					<select id="likecmt" name="likecmt" style="color: black; font-size: 15px;" class="form-control">
-						<option value="1">ON - Bật Like Comment</option>	
-						<option value="0">OFF - Tắt Like Comment</option>								
-					</select>
-				<span class="input-group-addon"><i class="fa fa-key"></i></span>
-			</div><br />
-			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-paste"></i>
-				</span>
                                       <select id="camxuc" class="form-control">	
                                               <option value="LOVE">LOVE</option> 
                                               <option value="WOW">WOW</option> 									
                                               <option value="HAHA">HAHA</option>
                                               <option value="SAD">SAD</option>
                                               <option value="ANGRY">ANGRY</option>
-                                       </select> 
-				<span class="input-group-addon"><i class="fa fa-paste"></i>
-				</span>                               
+                                       </select>                              
 			</div><br />
 			<div class="form-group">
-				<button class="btn btn-success btn-block" id="botcamxuc" onclick="post_BotCamXuc();">
-					<i class="fa fa-exchange"></i> Thực Thi
-				</button>
+				<button class="btn btn-success" id="botcamxuc" onclick="post_BotCamXuc();"> Thực Thi </button>
 			</div>
 		</div>
 		<div class="box-footer">
