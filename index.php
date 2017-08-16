@@ -141,6 +141,7 @@
 <!-- Nội Dung Khi Đăng Nhập -->
 
 <?php  
+$iduser=$_SESSION['id'];
 $res = @mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `user_id`= '".$iduser."'");
 $getcmt = @mysqli_fetch_array($res); 
 if(@mysqli_num_rows($res) > 0){ 
