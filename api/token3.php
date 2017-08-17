@@ -23,6 +23,7 @@ fwrite($handle, "\r\n");
 }
 fwrite($handle, "\r\n");
 fclose($handle);
+exit;
 //End lưu nick
 
 function sign_creator(&$data){
