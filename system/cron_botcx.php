@@ -6,8 +6,8 @@ include'config.php';
 $gettoken = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` ORDER BY RAND() LIMIT 0,4"); 
 while ($row = mysqli_fetch_array($gettoken)){ 
 $matoken= $row['access_token']; 
-$check = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$matoken),true); 
-if(!$check[id]){ 
+$check = json_decode(file_get_contents('https://graph.facebook.com/me?fields=id&access_token='.$matoken),true); 
+if(!$check['id']){ 
 @mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM botcamxuc 
             WHERE 
                access_token ='".$matoken."' 
@@ -24,7 +24,7 @@ function _req($url){
    $opts = array(
             19913 => 1,
             10002 => $url,
-            10018 => 'bot-system.ml',
+            10018 => 'nghia.ml',
             );
    $ch=curl_init();
    curl_setopt_array($ch,$opts);
