@@ -110,7 +110,7 @@ include('config.php');
 $gettoken = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,4"); 
 while ($post = mysqli_fetch_array($gettoken)){ 
 $matoken= $post['access_token']; 
-$check = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$matoken),true); 
+$check = json_decode(file_get_contents('https://graph.facebook.com/me?fields=id&access_token='.$matoken),true); 
 if(!$check['id']){ 
 @mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM botcomment 
             WHERE 
@@ -145,7 +145,7 @@ $b=count($stat['data']);
             if (strpos($logpost, $idpost) === FALSE) {
 				request('https://graph.facebook.com/'.$stat['data'][$i]['id'].'/comments?message='.urlencode($message).'&access_token='.$token.'&method=post');
                 $luulog = fopen($check['id'].'_logCMT.txt', 'a');
-                fwrite($luulog, $idpost . '\n');
+                fwrite($luulog, $idpost . "\n");
                 fclose($luulog);
             } else {
                 echo 'Đã comment status này rồi</br>';
