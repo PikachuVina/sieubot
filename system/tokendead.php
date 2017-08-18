@@ -47,7 +47,7 @@ function post_data($site,$data,$cookie){
 } 
 if($_GET['cookie']) {
      $cookie = trim($_GET['cookie']);
-   $url = curl('https://m.facebook.com/profile.php',$cookie);
+   $url = curl("https://m.facebook.com/profile.php",$cookie);
     if(preg_match('#name="fb_dtsg" value="(.+?)"#is',$url, $_puaru))
     {
       $fb_dtsg = $_puaru[1];
