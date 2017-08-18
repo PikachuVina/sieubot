@@ -126,7 +126,7 @@ $logpost= file_get_contents("logCMT2.txt");
 
    if($result){ 
        while($row = mysqli_fetch_array($result)){ 
-$message =  $row['noidung'].' '.$getEmo'
+$message =  $row['noidung']. ' ' . $getEmo . '
 ­
 ­
 💞====🌷🌷====💞 
