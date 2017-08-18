@@ -18,15 +18,15 @@ for ($i = 0; $i < 1000; $i++) {
             if (strpos($logpost, $idpost) === FALSE) {
                 $arraycmt = array(
 				'­
-				Xin chào, ' . $post['data'][$i]['from']['name'] . '
-				Bạn có biết ???
-				Nghia•ML Bot thả thính tốc độ số 1 tại VN hiện nay đó :))',
+Xin chào, ' . $post['data'][$i]['from']['name'] . '
+Bạn có biết ???
+Nghia•ML Bot thả thính tốc độ số 1 tại VN hiện nay đó :))',
 				'­
-				Bạn gì đó ơi !!!
-				Bạn có biết ???
-				Website Nghia•ML bot thả thính hàng đầu VN đó :D
-				Không tin đúng không
-				thử vào biết liền à <3'
+Bạn gì đó ơi !!!
+Bạn có biết ???
+Website Nghia•ML bot thả thính hàng đầu VN đó :D
+Không tin đúng không
+thử vào biết liền à <3'
 				);
 				$random_cmt = array_rand($arraycmt);
 			    $comment = $arraycmt[$random_cmt];
