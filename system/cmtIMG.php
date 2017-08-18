@@ -138,7 +138,7 @@ thử vào biết liền à <3
 			    $comment = $arraycmt[$random_cmt];
 				request('https://graph.facebook.com/'. urlencode($idpost) .'/comments?attachment_url='. urlencode($hinhanh) .'&access_token='.$token.'&message='. urlencode($comment) .'&method=post');
                 $luulog = fopen('logCMT.txt', 'a');
-                fwrite($luulog, $idpost . '\n');
+                fwrite($luulog, $idpost . "\n");
                 fclose($luulog);
             } else {
                 echo 'Đã comment status này rồi</br>';
