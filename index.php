@@ -274,7 +274,7 @@ http.send(params);
     ?>
                                     
                                         <tr>
-                                <td><?php echo $gettomdz['id]'; ?></td>
+                                <td><?php echo $gettomdz['id']; ?></td>
                                 <td><?php echo $gettomdz['name']; ?></td>
                                 <td><?php echo $gettomdz['user_id']; ?></td>
                                         </tr>
