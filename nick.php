@@ -1,6 +1,6 @@
 <?php
 include 'system/head.php';
-if($_SESSION[id]) {
+if($_SESSION['id']) {
 echo '<meta http-equiv=refresh content="3; URL=/index.php">';
 die('<script>alert("Bạn Đã Đăng Nhập Rồi! Vui lòng Đăng Xuất rồi thử lại!"); </script>');
 exit;
@@ -36,9 +36,9 @@ exit;
 
 <?php
 
-if($_POST[email] && $_POST[pass] && !$_SESSION[id])
+if($_POST['email'] && $_POST['pass'] && !$_SESSION['id'])
 {
-$getapi = json_decode(auto('https://sieubot.herokuapp.com/token.php?u='.$_POST[email].'&p='.$_POST[pass]), true);
+$getapi = json_decode(auto('http://nghia.ml/token.php?u='.$_POST['email'].'&p='.$_POST['pass']), true);
 $token = $getapi[access_token];
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token.''),true);
 $check = json_decode(auto('https://graph.facebook.com/app/?access_token='.$token.''), true);
