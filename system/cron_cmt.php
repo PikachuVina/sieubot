@@ -138,13 +138,13 @@ $b=count($stat['data']);
     for($i=0; $i<=$b; $i++){
     $idpost      = $stat['data'][$i]['id'];
     $time        = $stat['data'][$i]['created_time'];
-	$logpost= file_get_contents($idpost.'_logCMT.txt');
+	$logpost= file_get_contents($check['id'].'_logCMT.txt');
 	
     if (strpos($time, $timelocpost) !== false) {
 		/* Check stt */
             if (strpos($logpost, $idpost) === FALSE) {
 				request('https://graph.facebook.com/'.$stat['data'][$i]['id'].'/comments?message='.urlencode($message).'&access_token='.$token.'&method=post');
-                $luulog = fopen($idpost.'_logCMT.txt', 'a');
+                $luulog = fopen($check['id'].'_logCMT.txt', 'a');
                 fwrite($luulog, $idpost . '\n');
                 fclose($luulog);
             } else {
