@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
 				
-<?php if($_SESSION[id]) { ?>
+<?php if($_SESSION['id']) { ?>
 
 <div class="card card-user">
                             <div class="image">
@@ -13,10 +13,10 @@
                             <div class="content">
                                 <div class="author">
                                      <a href="#">
-                                    <img class="avatar border-gray" src="http://graph.facebook.com/<?php echo $_SESSION[id]; ?>/picture?width=200&height=200" alt="...">
+                                    <img class="avatar border-gray" src="http://graph.facebook.com/<?php echo $_SESSION['id']; ?>/picture?width=200&height=200" alt="...">
 
-                                      <h4 class="title"><?php echo $_SESSION[name]; ?><br>
-                                         <small><?php echo $_SESSION[id]; ?></small>
+                                      <h4 class="title"><?php echo $_SESSION['name']; ?><br>
+                                         <small><?php echo $_SESSION['id']; ?></small>
                                       </h4>
                                     </a>
                                 </div>
@@ -26,7 +26,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <button href="https://fb.me/<?php echo $_SESSION[id]; ?>" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                                <button href="https://fb.me/<?php echo $_SESSION['id']; ?>" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
                                 <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
                                 <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
                             </div>
