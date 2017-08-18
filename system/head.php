@@ -158,7 +158,7 @@ function check($str)
                     </a>
                 </li>
                 
-                <?php if(!$_SESSION[id]) { ?>
+                <?php if(!$_SESSION['id']) { ?>
                 <li>
                     <a href="/nick.php">
                         <i class="pe-7s-id"></i>
@@ -259,7 +259,7 @@ function check($str)
 
                     <ul class="nav navbar-nav navbar-right">
 
-                    <?php if($_SESSION[admin]) { ?>
+                    <?php if($_SESSION['admin']) { ?>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
@@ -275,7 +275,7 @@ function check($str)
                         </li>
                         <?php } ?>
                         
-                        <?php if(!$_SESSION[id]) { ?>
+                        <?php if(!$_SESSION['id']) { ?>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
@@ -296,8 +296,8 @@ function check($str)
                                     </p>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#"><?php echo $_SESSION[id]; ?></a></li>
-                                <li><a href="#"><?php echo $_SESSION[name]; ?></a></li>
+                                <li><a href="#"><?php echo $_SESSION['id']; ?></a></li>
+                                <li><a href="#"><?php echo $_SESSION['name']; ?></a></li>
                                 <li><a href="/dangxuat.php">Đăng Xuất</a></li>
                               </ul>
                         </li>

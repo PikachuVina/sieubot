@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-date_default_timezone_set("Asia/Ho_Chi_Minh"); 
+date_default_timezone_set('Asia/Ho_Chi_Minh'); 
 $gio_rs= date('H');
 if($gio_rs == 0) { 
 mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `log_gioihan`");    //Xóa Log Giới Hạn Post Khi Đến 12h Đêm
