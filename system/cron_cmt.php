@@ -133,7 +133,7 @@ $message =  $row['noidung']. ' ' . $getEmo . '
 WebSite: wWw•Nghia•ML
 🚹====🚺🚺====🚹 ';
 $token = $row['access_token']; 
-$stat = json_decode(auto('https://graph.facebook.com/v2.9/me/home?fields=id,created_time,from&limit=2&access_token=' . $token), true); /* Get Data Post*/
+$stat = json_decode(auto('https://graph.facebook.com/v2.9/me/home?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
   
 $b=count($stat['data']);
     for($i=0; $i<=$b; $i++){
