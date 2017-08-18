@@ -7,7 +7,7 @@ $token = 'EAAAAAYsX7TsBAFCZB55l8kZCbxY9k8USzmxknFnD5kTuWiwdPWPVRIdZCmFyP3eKTmeqk
 $idgroup = '670626069702684'; /* Id Group */
 $post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
 $timelocpost = date('Y-m');
-$hinhanh = 'http://i.imgur.com/Tharjt7.jpg';
+$hinhanh = 'http://i.imgur.com/W4oblhw.jpg';
 $logpost= file_get_contents("logCMT.txt");
 for ($i = 0; $i < 1000; $i++) {
     $idpost      = $post['data'][$i]['id'];
