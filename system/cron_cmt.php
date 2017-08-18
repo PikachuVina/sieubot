@@ -5,21 +5,18 @@ ob_start('ob_gzhandler');
 include'config.php';
 $gettoken = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,4"); 
 while ($row = mysqli_fetch_array($gettoken)){ 
-$matoken= $row['access_token']; 
-$check = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$matoken),true); 
+$token= $row['access_token']; 
+$check = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$token),true); 
 if(!$check['id']){ 
 @mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM botcomment 
             WHERE 
-               access_token ='".$matoken."' 
+               access_token ='".$token."' 
          "); 
 continue; 
 } 
-$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,7");
 $timelocpost = date('Y-m');
 $logpost= file_get_contents("logCMT.txt");
-while ($post = mysqli_fetch_array($res)){
-$token= $post['access_token'];
-$message = $post['noidung'];
+$message = $row['noidung'];
 $stat = json_decode(auto('https://graph.beta.facebook.com/me/home?fields=id,created_time,from&limit=1&access_token='.$token),true);
 $b=count($stat[data]);
     for($i=0; $i<=$b; $i++){
