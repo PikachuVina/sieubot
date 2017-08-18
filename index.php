@@ -259,7 +259,7 @@ http.send(params);
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><i class="pe-7s-user"></i> Người dùng ngẫu nhiên</h4>
-                                <p class="category">Hiện Tại Hệ Thống Đang Chứa <b><?php echo '' . mysqli_num_rows(mysqli_query($GLOBALS["___BMN_2312"],"SELECT * FROM `token` ORDER BY RAND()")); ?></b> Tài Khoản!</p>
+                                <p class="category">Hiện Tại Hệ Thống Đang Chứa <?php echo '' . mysqli_num_rows(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token` ORDER BY RAND()")) . ''; ?> Tài Khoản!</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
