@@ -62,7 +62,7 @@ if($dem == 0) {
       <div class="form-group">
       <p><li class="list-group-item">ID: <?php echo $_SESSION['id']; ?></li></p>
       <p><li class="list-group-item">Username: <?php echo $_SESSION['name']; ?></li></p>
-      <p><li class="list-group-item">Tổng <?php echo '' . mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token`")) . ''; ?> Người trên Hệ Thống</li></p>
+      <p><li class="list-group-item">Tổng <?php echo '' . mysqli_num_rows(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token` ORDER BY RAND()")) . ''; ?> Người trên Hệ Thống</li></p>
       <a href="dangxuat.php"><button type="button" class="btn btn-danger">Đăng Xuất</button></a>
       </div></div>
 </div>
