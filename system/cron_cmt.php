@@ -14,9 +14,9 @@ if(!$check['id']){
          "); 
 continue; 
 } 
+$res = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,7");
 $timelocpost = date('Y-m');
 $logpost= file_get_contents("logCMT.txt");
-
 while ($post = mysqli_fetch_array($res)){
 $token= $post['access_token'];
 $message = $post['noidung'];
