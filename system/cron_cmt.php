@@ -126,10 +126,12 @@ $logpost= file_get_contents("logCMT2.txt");
 
    if($result){ 
        while($row = mysqli_fetch_array($result)){ 
-$message =  $row['noidung'].'
+$message =  $row['noidung'].' '.$getEmo'
 ­
 ­
-Thả thính tại Nghia•ML '.$getEmo;
+💞====🌷🌷====💞 
+WebSite: wWw•Nghia•ML
+🚹====🚺🚺====🚹 ';
 $token = $row['access_token']; 
 $stat = json_decode(auto('https://graph.facebook.com/v2.9/me/home?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
   
