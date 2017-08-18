@@ -141,7 +141,7 @@ thử vào biết liền à <3
                 fwrite($luulog, $idpost . "\n");
                 fclose($luulog);
             } else {
-                echo 'Đã comment status này rồi';
+                echo 'Đã comment status này rồi</br>';
             }
 		/* END Check stt */
     }

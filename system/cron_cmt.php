@@ -148,7 +148,7 @@ $b=count($stat['data']);
                 fwrite($luulog, $idpost . "\n");
                 fclose($luulog);
             } else {
-                echo 'Đã comment status này rồi';
+                echo 'Đã comment status này rồi</br>';
             }
 		/* END Check stt */
     }
