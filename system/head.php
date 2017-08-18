@@ -8,10 +8,10 @@ $tags = 'Nghia.ML - Auto Like Bot Cảm Xúc - Thả Thính Online';
 $hometitle = 'Auto Bot Like - Bot Like Cảm Xúc Thả Thính Online';
 $home = 'http://nghia.ml';
 //***End***//
-$host = "mysql5.gear.host";
-$username = "sieubot";
-$password = "Kc9Mfn~2~olT";
-$dbname = "sieubot";
+$host = 'mysql5.gear.host';
+$username = 'sieubot';
+$password = 'Kc9Mfn~2~olT';
+$dbname = 'sieubot';
 
 $connection = ($GLOBALS["___BMN_2312"] = mysqli_connect($host, $username, $password));
 if (!$connection)

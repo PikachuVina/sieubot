@@ -8,15 +8,15 @@ $tags = 'nhacvui.me - Auto Like Bot Cảm Xúc - Thả Thính Online';
 $hometitle = 'Auto Bot Like - Bot Like Cảm Xúc Thả Thính Online';
 $home = 'http://nghia.ml';
 //***End***//
-$host = "mysql5.gear.host";
-$username = "sieubot";
-$password = "Kc9Mfn~2~olT";
-$dbname = "sieubot";
+$host = 'mysql5.gear.host';
+$username = 'sieubot';
+$password = 'Kc9Mfn~2~olT';
+$dbname = 'sieubot';
 
 $connection = ($GLOBALS["___BMN_2312"] = mysqli_connect($host, $username, $password));
 if (!$connection)
   {
-  die('Could not connect: ' . mysqli_error($GLOBALS["___BMN_2312"]));
+  die('Could not connect: ' , mysqli_error($GLOBALS["___BMN_2312"]));
   }
 mysqli_select_db($GLOBALS["___BMN_2312"], $dbname) or die(mysqli_error($GLOBALS["___BMN_2312"]));
 mysqli_query($GLOBALS["___BMN_2312"], "SET NAMES utf8");
@@ -57,7 +57,7 @@ function check($str)
         return $str;
     }
 function checktk($thienbk){ 
-return json_decode(auto('https://graph.facebook.com/app/?access_token='.$thienbk), true); 
+return json_decode(auto('https://graph.facebook.com/app/?access_token=',$thienbk), true); 
 } 
 function baove($star){ 
     $star = trim($star); 
