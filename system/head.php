@@ -2,7 +2,7 @@
 session_start();
 
 //***Ghi Chú***//
-$title = 'Nghia.ML';
+$title = 'Nghĩa•MặtLờ';
 $hometitle = 'Nghia.ML - AutoBot Cảm Xúc - Thả Thính Online';
 $tags = 'Nghia.ML - Auto Like Bot Cảm Xúc - Thả Thính Online';
 $hometitle = 'Auto Bot Like - Bot Like Cảm Xúc Thả Thính Online';
