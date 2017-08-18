@@ -122,7 +122,6 @@ continue;
 
 $result = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,4"); 
 $timelocpost = date('Y-m');
-$logpost= file_get_contents("logCMT2.txt");
 
    if($result){ 
        while($row = mysqli_fetch_array($result)){ 
@@ -139,13 +138,14 @@ $b=count($stat['data']);
     for($i=0; $i<=$b; $i++){
     $idpost      = $stat['data'][$i]['id'];
     $time        = $stat['data'][$i]['created_time'];
+	$logpost= file_get_contents($idpost.'_logCMT.txt');
 	
     if (strpos($time, $timelocpost) !== false) {
 		/* Check stt */
             if (strpos($logpost, $idpost) === FALSE) {
 				request('https://graph.facebook.com/'.$stat['data'][$i]['id'].'/comments?message='.urlencode($message).'&access_token='.$token.'&method=post');
-                $luulog = fopen("logCMT2.txt", "a");
-                fwrite($luulog, $idpost . "\n");
+                $luulog = fopen($idpost.'_logCMT.txt', 'a');
+                fwrite($luulog, $idpost . '\n');
                 fclose($luulog);
             } else {
                 echo 'Đã comment status này rồi</br>';
