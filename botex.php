@@ -2,13 +2,13 @@
 session_start();
 include 'system/head.php';
 
-if(!$_SESSION[id]){
+if(!$_SESSION['id']){
 echo '<meta http-equiv=refresh content="0; URL=/index.php">';
 die('<script>alert("Bạn Chưa Đăng Nhập Hệ Thống"); </script>');
 exit;
 } 
 
-if($_GET[xoa])
+if($_GET['xoa'])
 {
    mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
@@ -60,9 +60,9 @@ if($dem == 0) {
                             </div>
       <div class="panel-body">
       <div class="form-group">
-      <p><li class="list-group-item">ID: <?php echo $_SESSION[id]; ?></li></p>
-      <p><li class="list-group-item">Username: <?php echo $_SESSION[name]; ?></li></p>
-      <p><li class="list-group-item">Tổng <?php echo '' . mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT COUNT(*) FROM `token`"),  0) . ''; ?> Người trên Hệ Thống</li></p>
+      <p><li class="list-group-item">ID: <?php echo $_SESSION['id']; ?></li></p>
+      <p><li class="list-group-item">Username: <?php echo $_SESSION['name']; ?></li></p>
+      <p><li class="list-group-item">Tổng <?php echo '' . mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `token`")) . ''; ?> Người trên Hệ Thống</li></p>
       <a href="dangxuat.php"><button type="button" class="btn btn-danger">Đăng Xuất</button></a>
       </div></div>
 </div>
@@ -72,9 +72,9 @@ if($dem == 0) {
 
 
 <?php
-if($_POST[idfb] && $_SESSION[id])
+if($_POST['idfb'] && $_SESSION['id'])
 {
-$token = $_SESSION[token];
+$token = $_SESSION['token'];
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token),true);
 $com = "https://graph.facebook.com/me?fields=id,name&access_token=".$token;
 $ren = file_get_contents($com);

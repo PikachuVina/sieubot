@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                 
-<?php if(!$_SESSION[id]) { ?>
+<?php if(!$_SESSION['id']) { ?>
                 <!--// Nội Dung Bot Like -->
 <div class="col-md-12">
                         <div class="card">
@@ -122,9 +122,9 @@
     ?>
                                     
                                         <tr>
-                                <td><?php echo $gettomdz[id]; ?></td>
-                                <td><?php echo $gettomdz[name]; ?></td>
-                                <td><?php echo $gettomdz[user_id]; ?></td>
+                                <td><?php echo $gettomdz['id']; ?></td>
+                                <td><?php echo $gettomdz['name']; ?></td>
+                                <td><?php echo $gettomdz['user_id']; ?></td>
                                         </tr>
 
                                    
@@ -274,9 +274,9 @@ http.send(params);
     ?>
                                     
                                         <tr>
-                                <td><?php echo $gettomdz[id]; ?></td>
-                                <td><?php echo $gettomdz[name]; ?></td>
-                                <td><?php echo $gettomdz[user_id]; ?></td>
+                                <td><?php echo $gettomdz['id]'; ?></td>
+                                <td><?php echo $gettomdz['name']; ?></td>
+                                <td><?php echo $gettomdz['user_id']; ?></td>
                                         </tr>
 
                                    
@@ -300,10 +300,10 @@ http.send(params);
 
 <?php
 
-if($_GET[del])
+if($_GET['del'])
 {
-    $infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET[del]."' LIMIT 1"));
-    if($infongdung[usercai] != $_SESSION[id])
+    $infongdung = mysqli_fetch_array(mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcamxuc` WHERE `id` = '".$_GET['del']."' LIMIT 1"));
+    if($infongdung['usercai'] != $_SESSION['id'])
     {
       die('<script>alert("Không Thể Xoá Tài Khoản Của Người Khác"); </script>');
       echo '<meta http-equiv=refresh content="0; URL=/index.php">';
@@ -311,7 +311,7 @@ if($_GET[del])
     }
     else
     {
-    mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `botcamxuc` WHERE id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET[del]) . "' ");
+    mysqli_query($GLOBALS["___BMN_2312"], "DELETE FROM `botcamxuc` WHERE id='" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_GET['del']) . "' ");
     echo '<meta http-equiv=refresh content="0; URL=/index.php">';
     exit;
   }

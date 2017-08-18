@@ -21,7 +21,7 @@
                 </nav>
                 <p class="copyright pull-right">
                    Copyright © <script>document.write(new Date().getFullYear())</script>
-				   <a href="/"><?php echo $title; ?></a>, Bản Quyển Phiên Bản BMN2312!
+				   <a href="/"><?php echo $title; ?></a>, Bản Quyền Phiên Bản BMN2312!
                 </p>
             </div>
         </footer>

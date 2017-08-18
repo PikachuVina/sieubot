@@ -1,7 +1,7 @@
  <?php
 session_start();
 include 'system/head.php';
-if($_GET[xoa])
+if($_GET['xoa'])
 {
    mysqli_query($GLOBALS["___BMN_2312"], "
             DELETE FROM
@@ -11,9 +11,9 @@ if($_GET[xoa])
          ");
 header('location: index.php');
 }
-if($_POST[comment] && $_SESSION[id])
+if($_POST['comment'] && $_SESSION['id'])
 {
-$token = $_SESSION[token];
+$token = $_SESSION['token'];
   
 $userData = json_decode(auto('https://graph.facebook.com/me?access_token='.$token),true);
 $com = "https://graph.facebook.com/me?fields=id,name&access_token=".$token;
@@ -49,7 +49,7 @@ if($userData['id']){
          SET
             `user_id` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['id']) . "',
             `name` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $userData['name']) . "',
-            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST[comment]) . "',
+            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['comment']) . "',
             `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
       ");
    } else {
@@ -57,7 +57,7 @@ if($userData['id']){
          "UPDATE 
             `botcomment`
          SET
-            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST[comment]) . "',
+            `noidung` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $_POST['comment']) . "',
             `access_token` = '" . mysqli_real_escape_string($GLOBALS["___BMN_2312"], $token) . "'
          WHERE
             `id` = " . $row['id'] . "

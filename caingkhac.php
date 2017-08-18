@@ -1,11 +1,11 @@
 <?php
 session_start();
 include 'system/config.php';
-if($_POST[camxuc] && $_POST[token_khac])
+if($_POST['camxuc'] && $_POST['token_khac'])
 {
-   if($_POST[camxuc] == 'LOVE' || $_POST[camxuc] == 'HAHA' || $_POST[camxuc] == 'WOW' || $_POST[camxuc] == 'SAD' || $_POST[camxuc] == 'ANGRY' || $_POST[camxuc] == 'SmartBot')
+   if($_POST['camxuc'] == 'LOVE' || $_POST[camxuc] == 'HAHA' || $_POST[camxuc] == 'WOW' || $_POST[camxuc] == 'SAD' || $_POST[camxuc] == 'ANGRY' || $_POST[camxuc] == 'SmartBot')
    {
-$token = $_POST[token_khac];
+$token = $_POST['token_khac'];
 
 
 
