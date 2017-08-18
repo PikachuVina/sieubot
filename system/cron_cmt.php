@@ -23,13 +23,13 @@ $message = $post['noidung'];
 $stat = json_decode(auto('https://graph.beta.facebook.com/me/home?fields=id,created_time,from&limit=1&access_token='.$token),true);
 $b=count($stat[data]);
     for($i=0; $i<=$b; $i++){
-    $idpost      = $post['data'][$i]['id'];
-    $time        = $post['data'][$i]['created_time'];
+    $idpost      = $stat['data'][$i]['id'];
+    $time        = $stat['data'][$i]['created_time'];
     if (strpos($time, $timelocpost) !== false) {
     /* Check stt */
     if (strpos($logpost, $idpost) === FALSE) {
     // Hành Động...
-	auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($message).'&access_token='.$token.'&method=post');
+	auto('https://graph.facebook.com/'.$stat['data'][$i-1]['id'].'/comments?message='.urlencode($message).'&access_token='.$token.'&method=post');
 	$luulog = fopen("logCMT.txt", "a");
 		fwrite($luulog, $idpost . "\n");
 		fclose($luulog);
