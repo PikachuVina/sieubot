@@ -10,8 +10,8 @@ define('LOGIN_USERNAME_DEFAULT', 'Admin');
 define('LOGIN_PASSWORD_DEFAULT', md5(md5('sgktyemlnn')));
 define('VERSION','1.0');
 define('PAGE_LIST_DEFAULT', 50);
-define('PAGE_FILE_EDIT_DEFAULT', 30);
-define('PAGE_FILE_EDIT_LINE_DEFAULT', 30);
+define('PAGE_FILE_EDIT_DEFAULT', 0);
+define('PAGE_FILE_EDIT_LINE_DEFAULT', 0);
 
 define('PAGE_NUMBER', 7);
 define('PAGE_URL_DEFAULT', 'default');
