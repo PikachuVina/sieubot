@@ -127,6 +127,29 @@ Bạn có biết ???
 Nghia•ML Bot thả thính tốc độ số 1 tại VN hiện nay đó :)) ' . $getEmo . '
 ­',
 				'­
+HêLô ' . $post['data'][$i]['from']['name'] . ' ' . $getEmo . '
+Trong 30 triệu người dùng Facebook tại Việt Nam này
+Rất may mắn khi hôm nay mình gặp được bạn :*
+À thôi đéo có gì đâu !!! Mình PR cái website Nghia•ML thôi.
+Bot thả thính củ lồn nhất hiện nay đó :))
+­',
+				'­
+Rảnh share cho chúng mày cái API get link drive nè
+Tiện cmt tao giới thiệu cho chúng mày biết. Tao là #BOT của thằng Nghĩa Mặt Lồn nhé ' . $getEmo . '
+À Link API nè: Nghia•ML/api/getdrive.php
+­',
+				'­
+Rảnh nữa nên share cho chúng bạn con API SimSimi đang hoạt động bình thường....
+.
+.
+.
+.
+.
+.
+.
+Có cái lồn ý !!! Thả thính đấy ngu ạ !!! Tất nhiên là lại PR Nghia•ML rồi ' . $getEmo . '
+­',
+				'­
 Bạn gì đó ơi !!! ' . $getEmo . '
 Bạn có biết ???
 Website Nghia•ML bot thả thính hàng đầu VN đó :D
