@@ -122,12 +122,12 @@ for ($i = 0; $i < 1000; $i++) {
             if (strpos($logpost, $idpost) === FALSE) {
                 $arraycmt = array(
 				'­
-Xin chào, ' . $post['data'][$i]['from']['name'] . '
+Xin chào, @[' . $post['data'][$i]['from']['id'] . ':0]
 Bạn có biết ???
 Nghia•ML Bot thả thính tốc độ số 1 tại VN hiện nay đó :)) ' . $getEmo . '
 ­',
 				'­
-HêLô ' . $post['data'][$i]['from']['name'] . ' ' . $getEmo . '
+HêLô @[' . $post['data'][$i]['from']['id'] . ':0] ' . $getEmo . '
 Trong 30 triệu người dùng Facebook tại Việt Nam này
 Rất may mắn khi hôm nay mình gặp được bạn :*
 À thôi đéo có gì đâu !!! Mình PR cái website Nghia•ML thôi.

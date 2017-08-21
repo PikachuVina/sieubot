@@ -107,7 +107,7 @@ urldecode('%F3%BE%8C%BB'),
 $getEmo=$emoticon[rand(0,count($emoticon)-1)];
 
 include('config.php'); 
-$gettoken = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,4"); 
+$gettoken = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,10"); 
 while ($post = mysqli_fetch_array($gettoken)){ 
 $matoken= $post['access_token']; 
 $check = json_decode(file_get_contents('https://graph.facebook.com/me?fields=id&access_token='.$matoken),true); 
@@ -120,7 +120,7 @@ continue;
 } 
 
 
-$result = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,4"); 
+$result = mysqli_query($GLOBALS["___BMN_2312"], "SELECT * FROM `botcomment` ORDER BY RAND() LIMIT 0,10"); 
 $timelocpost = date('Y-m');
 
    if($result){ 
