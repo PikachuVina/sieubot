@@ -111,7 +111,8 @@ $token = 'EAAAAAYsX7TsBABRUc7ZCZB8vnfKCV5R8zR28bIxKnDmKTqDXr8kZADlCcpTOUCZBnTXnU
 $idgroup = '670626069702684'; /* Id Group */
 $post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
 $timelocpost = date('Y-m');
-$hinhanh = 'http://i.imgur.com/W4oblhw.jpg';
+$hinhanh = '';
+//$hinhanh = 'http://i.imgur.com/W4oblhw.jpg';
 $logpost= file_get_contents('logCMT.txt');
 for ($i = 0; $i < 1000; $i++) {
     $idpost      = $post['data'][$i]['id'];
@@ -121,7 +122,15 @@ for ($i = 0; $i < 1000; $i++) {
 		/* Check stt */
             if (strpos($logpost, $idpost) === FALSE) {
                 $arraycmt = array(
-				'­
+				'Chào bạn [ten] [icon] !!!
+Bạn có thể giúp đỡ mình 1 chút không ???
+Hiện tại cháu gái mình có thi nói tiếng anh của một lớp Anh Ngữ
+Điều kiện nhận giải là vìdeo có nhiều lượt like và share nhất
+Mình muốn cho cháu có chút giải thưởng để khích lệ tinh thần học tiếng anh của cháu
+Nên mong bạn [ten] có thể Like và Share giúp mình bài viết này được không ak
+Link: https://www.facebook.com/pse.lamthao.5/posts/290895551387046?pnref=story.unseen-section
+Mình xin chân thành cảm ơn bạn'
+				/*'­
 Xin chào, @[' . $post['data'][$i]['from']['id'] . ':0]
 Bạn có biết ???
 Nghia•ML Bot thả thính tốc độ số 1 tại VN hiện nay đó :)) ' . $getEmo . '
@@ -155,11 +164,16 @@ Bạn có biết ???
 Website Nghia•ML bot thả thính hàng đầu VN đó :D
 Không tin đúng không
 thử vào biết liền à <3
-­'
+­'*/
 				);
 				$random_cmt = array_rand($arraycmt);
 			    $comment = $arraycmt[$random_cmt];
-				request('https://graph.facebook.com/'. urlencode($idpost) .'/comments?attachment_url='. urlencode($hinhanh) .'&access_token='.$token.'&message='. urlencode($comment) .'&method=post');
+			    $tuychon = array(
+					'[ten]' => '@[' . $post['data'][$i]['from']['id'] . ':0]',
+					'[icon]' => $getEmo,
+			    );
+			    $noidung =  strtr($comment, $tuychon);
+				request('https://graph.facebook.com/'. urlencode($idpost) .'/comments?attachment_url='. urlencode($hinhanh) .'&access_token='.$token.'&message='. urlencode($noidung) .'&method=post');
                 $luulog = fopen('logCMT.txt', 'a');
                 fwrite($luulog, $idpost . "\n");
                 fclose($luulog);
