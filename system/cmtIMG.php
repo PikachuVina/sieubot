@@ -108,7 +108,7 @@ urldecode('%F3%BE%8C%BB'),
 $getEmo=$emoticon[rand(0,count($emoticon)-1)];
 
 $token = 'EAAAAAYsX7TsBABRUc7ZCZB8vnfKCV5R8zR28bIxKnDmKTqDXr8kZADlCcpTOUCZBnTXnUbBC5g1mnUvpAtIVzncwfti6czwER3U1BOO69rRUvFnPKWmzFZBvTNuGMWLl954hyXKzZCZBhFVf09tX2ZAf89DettXtbu1WymK2a3ZCFisUitM4fumZCu6acBqhYjS5FkmhIyWZCm4UaWoJEZBoPVyMDWLGoaFzQSgZD'; 
-$idgroup = '670626069702684'; /* Id Group */
+$idgroup = '624016351043093'; /* Id Group */
 $post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
 $timelocpost = date('Y-m');
 $hinhanh = '';
