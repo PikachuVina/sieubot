@@ -107,14 +107,32 @@ urldecode('%F3%BE%8C%BB'),
 );
 $getEmo=$emoticon[rand(0,count($emoticon)-1)];
 
-$token = 'EAAAAAYsX7TsBABRUc7ZCZB8vnfKCV5R8zR28bIxKnDmKTqDXr8kZADlCcpTOUCZBnTXnUbBC5g1mnUvpAtIVzncwfti6czwER3U1BOO69rRUvFnPKWmzFZBvTNuGMWLl954hyXKzZCZBhFVf09tX2ZAf89DettXtbu1WymK2a3ZCFisUitM4fumZCu6acBqhYjS5FkmhIyWZCm4UaWoJEZBoPVyMDWLGoaFzQSgZD'; 
-$idgroup = '624016351043093'; /* Id Group */
-//$post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
-$post = json_decode(request('https://graph.facebook.com/v2.9/me/home?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
+$token = 'EAAAAAYsX7TsBAJqgSbTTlc1E8MOWod6BLRVGChlQZAMxQApnlwzOPzuVCjH4HfmH9ZBYdTxsrUobkGpbGekUYGfvOoG6ECiD0Y817ufAeNkxZAqhXnVp4pOnUm7rmcpMvod0rZCQpEnDPZCZCWE552REEQQ0Fa4mcAUnKvNg7ARMQ2HJrmPQrj3R6ZCWvWTkycZBirON8BADRjk5G6Se0ra2PLsmDfEj1TsZD'; 
+//hiển thị danh sách group và tách lấy random
+$listgroup = '624016351043093
+670626069702684
+629365833918685
+624016351043093
+670626069702684
+629365833918685';
+$tachgr = explode("\n",$listgroup);
+$idgroup = $tachgr[rand(0,count($tachgr)-1)];
+
+//hiển thị danh sách hình ảnh và tách lấy random
+$listhinhanh = 'http://i.imgur.com/1OLDaHu.jpg
+http://i.imgur.com/O1SIUc9.jpg
+http://i.imgur.com/kMkaEP7.jpg
+http://i.imgur.com/1OLDaHu.jpg
+http://i.imgur.com/O1SIUc9.jpg
+http://i.imgur.com/kMkaEP7.jpg';
+$tachanh = explode("\n",$listhinhanh);
+$hinhanh = $tachanh[rand(0,count($tachanh)-1)];
+
+$post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
+
 $timelocpost = date('Y-m');
-$hinhanh = '';
-//$hinhanh = 'http://i.imgur.com/W4oblhw.jpg';
 $logpost= file_get_contents('logCMT.txt');
+
 for ($i = 0; $i < 1000; $i++) {
     $idpost      = $post['data'][$i]['id'];
     $time        = $post['data'][$i]['created_time'];
@@ -123,14 +141,14 @@ for ($i = 0; $i < 1000; $i++) {
 		/* Check stt */
             if (strpos($logpost, $idpost) === FALSE) {
                 $arraycmt = array(
-				'Chào bạn [ten] [icon] !!!
-Bạn có thể giúp đỡ mình 1 chút không ???
-Hiện tại cháu gái mình có thi nói tiếng anh của một lớp Anh Ngữ
-Điều kiện nhận giải là vìdeo có nhiều lượt like và share nhất
-Mình muốn cho cháu có chút giải thưởng để khích lệ tinh thần học tiếng anh của cháu
-Nên mong bạn [ten] có thể Like và Share giúp mình bài viết này được không ak
-Link: https://www.facebook.com/pse.lamthao.5/posts/290895551387046?pnref=story.unseen-section
-Mình xin chân thành cảm ơn bạn'
+				'Chào [ten] [icon] !!! Bạn có đang bán hàng online ???
+Kem trộn, sữa tắm, mặt nạ lột mụn, đồ ăn nhanh, dịch vụ facebook ....
+Bạn có muốn tiếp cận sản phẩm của mình cho nhiều người biết ?
+Hệ thống Bot Quảng Cáo sản phẩm của mình tại website Nghĩa.Vn sẽ tự động làm tất cả cho bạn
+Với lượng người tương tác với sản phẩm bên bạn 100% người thật, giá thành chỉ từ 50k/1 tháng mà bạn có thể kiếm được 1 số lượng lớn khách hàng tiềm năng
+Bạn muốn tìm hiểu thêm ???
+Website: Nghĩa.Vn
+Hotline: 0985.389.299 Gặp #Nghĩa [icon]'
 				/*'­
 Xin chào, @[' . $post['data'][$i]['from']['id'] . ':0]
 Bạn có biết ???
