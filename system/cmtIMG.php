@@ -107,14 +107,9 @@ urldecode('%F3%BE%8C%BB'),
 );
 $getEmo=$emoticon[rand(0,count($emoticon)-1)];
 
-$token = 'EAAAAAYsX7TsBAJqgSbTTlc1E8MOWod6BLRVGChlQZAMxQApnlwzOPzuVCjH4HfmH9ZBYdTxsrUobkGpbGekUYGfvOoG6ECiD0Y817ufAeNkxZAqhXnVp4pOnUm7rmcpMvod0rZCQpEnDPZCZCWE552REEQQ0Fa4mcAUnKvNg7ARMQ2HJrmPQrj3R6ZCWvWTkycZBirON8BADRjk5G6Se0ra2PLsmDfEj1TsZD'; 
+$token = 'EAAAAAYsX7TsBAPJlRZB1UhfepLLv3t7HuciUlRbSjWQmuM5SZApfMJtu8jQZAZCMIkPmCuD85vDMTwAFDZBd40MlS381XGQIrHPwGLu6xBKBJu5R0rYtiFQU0ZAunu7gb5x3kr5gV6WAlVSjUnZC25piXBs6i2oPycOhQKWWKqNORSMPSOUJvJx9AgdpCF9rZABP0ffzFfUJzr3pDcKziGYzn4FueDZA8ZC3MZD'; 
 //hiển thị danh sách group và tách lấy random
-$listgroup = '624016351043093
-670626069702684
-629365833918685
-624016351043093
-670626069702684
-629365833918685';
+$listgroup = '670626069702684';
 $tachgr = explode("\n",$listgroup);
 $idgroup = $tachgr[rand(0,count($tachgr)-1)];
 
@@ -144,24 +139,25 @@ for ($i = 0; $i < 1000; $i++) {
 				'Chào [ten] [icon] !!! Bạn có đang bán hàng online ???
 Kem trộn, sữa tắm, mặt nạ lột mụn, đồ ăn nhanh, dịch vụ facebook ....
 Bạn có muốn tiếp cận sản phẩm của mình cho nhiều người biết ?
-Hệ thống Bot Quảng Cáo sản phẩm của mình tại website Nghĩa.Vn sẽ tự động làm tất cả cho bạn
+Hệ thống Bot Quảng Cáo sản phẩm của mình tại website Nghĩa•Vn sẽ tự động làm tất cả cho bạn
 Với lượng người tương tác với sản phẩm bên bạn 100% người thật, giá thành chỉ từ 50k/1 tháng mà bạn có thể kiếm được 1 số lượng lớn khách hàng tiềm năng
 Bạn muốn tìm hiểu thêm ???
-Website: Nghĩa.Vn
+Website: Nghĩa•Vn
 Hotline: 0985.389.299 Gặp #Nghĩa [icon]'
 				/*'­
 Xin chào, @[' . $post['data'][$i]['from']['id'] . ':0]
 Bạn có biết ???
 Nghia•ML Bot thả thính tốc độ số 1 tại VN hiện nay đó :)) ' . $getEmo . '
-­',
+­',*/
 				'­
-HêLô @[' . $post['data'][$i]['from']['id'] . ':0] ' . $getEmo . '
+HêLô [ten] [icon]
 Trong 30 triệu người dùng Facebook tại Việt Nam này
 Rất may mắn khi hôm nay mình gặp được bạn :*
-À thôi đéo có gì đâu !!! Mình PR cái website Nghia•ML thôi.
-Bot thả thính củ lồn nhất hiện nay đó :))
+À thôi đéo có gì đâu !!! Mình PR cái website Nghia•Vn thôi.
+Hệ thống Bot Quảng Cáo tốt nhất hiện nay đó :)
 ­',
-				'­
+
+/*				'­
 Rảnh share cho chúng mày cái API get link drive nè
 Tiện cmt tao giới thiệu cho chúng mày biết. Tao là #BOT của thằng Nghĩa Mặt Lồn nhé ' . $getEmo . '
 À Link API nè: Nghia•ML/api/getdrive.php
@@ -188,7 +184,8 @@ thử vào biết liền à <3
 				$random_cmt = array_rand($arraycmt);
 			    $comment = $arraycmt[$random_cmt];
 			    $tuychon = array(
-					'[ten]' => '@[' . $post['data'][$i]['from']['id'] . ':0]',
+					'[tag]' => '@[' . $post['data'][$i]['from']['id'] . ':0]',
+					'[ten]' => $post['data'][$i]['from']['name'];
 					'[icon]' => $getEmo,
 			    );
 			    $noidung =  strtr($comment, $tuychon);
