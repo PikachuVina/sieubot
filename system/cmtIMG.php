@@ -107,7 +107,14 @@ urldecode('%F3%BE%8C%BB'),
 );
 $getEmo=$emoticon[rand(0,count($emoticon)-1)];
 
-$token = 'EAACEdEose0cBALEYZBsPulCRgIa4BCIquZBa1SLtagZBOJitC65vKIYwg1goda4N2W2F5pY9otDJ6KNORHFvaHndMGZAndOr2G9FJ0SiCaa8T3aJnAzgOZAjxYMtpFNWeQ8XRpFeUAcikdUT4anSdwPusnp9REQfe3edgMoVks9gRTUu5vBxqbghUD2WuCv5UUcYYuuadgkZAe48ZAiL8x37iYXK0rBV5IZD'; 
+$cookie = 'datr=GahnWZh_pVOVt7ZeeOqbFRpO; sb=06hnWZdINpfoggfI52UiydYR; pl=n; lu=gA; c_user=100004294419791; xs=28:DXgSlOGVDXbogA:2:1503453145:12270:13697; fr=0xTnTxrFZCPJyK6GX.AWW1J9uSwhAQ6jY1gUl5mG9fyp0.BZZfwQ.C7.AAA.0.0.BZnPxJ.AWWtSUnf';
+$html= CURL_Token('https://developers.facebook.com/tools/explorer/145634995501895',$cookie);  //curl get token full access
+if(preg_match('#"accessToken":"(.*)","anonymousTokenAllowed#',$html,$vucms))//regex token
+{
+ $token = $vucms[1];//token account > not is token page
+}
+
+
 //hiển thị danh sách group và tách lấy random
 $listgroup = '670626069702684';
 $tachgr = explode("\n",$listgroup);
@@ -123,7 +130,7 @@ http://i.imgur.com/kMkaEP7.jpg';
 $tachanh = explode("\n",$listhinhanh);
 $hinhanh = $tachanh[rand(0,count($tachanh)-1)];
 
-$post = json_decode(request('https://graph.facebook.com/v2.3/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
+$post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
 
 $timelocpost = date('Y-m');
 $logpost= file_get_contents('logCMT.txt');
@@ -203,4 +210,18 @@ function request($url)
     unset($options);
     return $http_code === 200 ? $response : FALSE;
 }
+
+function CURL_Token($site,$cookie=null,$data=null){
+    $datapost = curl_init();
+    curl_setopt($datapost, CURLOPT_URL, $site);
+    curl_setopt($datapost, CURLOPT_TIMEOUT, 400);
+    curl_setopt($datapost, CURLOPT_COOKIE,$cookie); 
+    curl_setopt($datapost, CURLOPT_SSL_VERIFYHOST, FALSE);
+    curl_setopt($datapost, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($datapost, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($datapost, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36');
+    $ts= curl_exec($datapost);
+    curl_close ($datapost);
+	return $ts;
+} 
 ?>
