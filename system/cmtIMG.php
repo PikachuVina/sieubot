@@ -107,7 +107,7 @@ urldecode('%F3%BE%8C%BB'),
 );
 $getEmo=$emoticon[rand(0,count($emoticon)-1)];
 
-$token = 'EAAAAAYsX7TsBAPJlRZB1UhfepLLv3t7HuciUlRbSjWQmuM5SZApfMJtu8jQZAZCMIkPmCuD85vDMTwAFDZBd40MlS381XGQIrHPwGLu6xBKBJu5R0rYtiFQU0ZAunu7gb5x3kr5gV6WAlVSjUnZC25piXBs6i2oPycOhQKWWKqNORSMPSOUJvJx9AgdpCF9rZABP0ffzFfUJzr3pDcKziGYzn4FueDZA8ZC3MZD'; 
+$token = 'EAACEdEose0cBALEYZBsPulCRgIa4BCIquZBa1SLtagZBOJitC65vKIYwg1goda4N2W2F5pY9otDJ6KNORHFvaHndMGZAndOr2G9FJ0SiCaa8T3aJnAzgOZAjxYMtpFNWeQ8XRpFeUAcikdUT4anSdwPusnp9REQfe3edgMoVks9gRTUu5vBxqbghUD2WuCv5UUcYYuuadgkZAe48ZAiL8x37iYXK0rBV5IZD'; 
 //hiển thị danh sách group và tách lấy random
 $listgroup = '670626069702684';
 $tachgr = explode("\n",$listgroup);
