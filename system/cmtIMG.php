@@ -3,6 +3,8 @@
 set_time_limit(0);
 error_reporting(0);
 
+
+//Code emoticon
 $emoticon=array(
 urldecode('%F3%BE%80%80'),
 urldecode('%F3%BE%80%81'),
@@ -107,13 +109,14 @@ urldecode('%F3%BE%8C%BB'),
 );
 $getEmo=$emoticon[rand(0,count($emoticon)-1)];
 
+
+//lấy token từ tools/explorer thông qua cookie
 $cookie = 'datr=GahnWZh_pVOVt7ZeeOqbFRpO; sb=06hnWZdINpfoggfI52UiydYR; pl=n; lu=gA; c_user=100004294419791; xs=28:DXgSlOGVDXbogA:2:1503453145:12270:13697; fr=0xTnTxrFZCPJyK6GX.AWW1J9uSwhAQ6jY1gUl5mG9fyp0.BZZfwQ.C7.AAA.0.0.BZnPxJ.AWWtSUnf';
 $html= CURL_Token('https://developers.facebook.com/tools/explorer/145634995501895',$cookie);  //curl get token full access
 if(preg_match('#"accessToken":"(.*)","anonymousTokenAllowed#',$html,$vucms))//regex token
 {
  $token = $vucms[1];//token account > not is token page
 }
-
 
 //hiển thị danh sách group và tách lấy random
 $listgroup = '670626069702684';
@@ -130,17 +133,19 @@ http://i.imgur.com/kMkaEP7.jpg';
 $tachanh = explode("\n",$listhinhanh);
 $hinhanh = $tachanh[rand(0,count($tachanh)-1)];
 
+//lấy thông tin bài đăng trong nhóm
 $post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
 
+//lấy thời gian hiện tại và lấy nội dung file log
 $timelocpost = date('Y-m');
 $logpost= file_get_contents('logCMT.txt');
 
 for ($i = 0; $i < 1000; $i++) {
     $idpost      = $post['data'][$i]['id'];
     $time        = $post['data'][$i]['created_time'];
-	
+//Check thời gian hiện tại và thời gian đăng bài nếu không trùng sẽ chạy tiếp lệnh
     if (strpos($time, $timelocpost) !== false) {
-		/* Check stt */
+//Check file log nếu không có ID POST sẽ thực hiện post CMT
             if (strpos($logpost, $idpost) === FALSE) {
                 $arraycmt = array(
 				'­
@@ -156,7 +161,7 @@ Hotline: 0985.389.299 Gặp #Nghĩa [icon]',
 HêLô [ten] [icon]
 Trong 30 triệu người dùng Facebook tại Việt Nam này
 Rất may mắn khi hôm nay mình gặp được bạn :*
-À thôi đéo có gì đâu !!! Mình PR cái website Nghia•Vn thôi.
+À thôi đéo có gì đâu !!! Mình PR cái website Nghĩa•Vn thôi.
 Hệ thống Bot Quảng Cáo tốt nhất hiện nay đó :)
 				­'
 				);
