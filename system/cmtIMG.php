@@ -123,7 +123,7 @@ http://i.imgur.com/kMkaEP7.jpg';
 $tachanh = explode("\n",$listhinhanh);
 $hinhanh = $tachanh[rand(0,count($tachanh)-1)];
 
-$post = json_decode(request('https://graph.facebook.com/v2.9/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
+$post = json_decode(request('https://graph.facebook.com/v2.3/' .$idgroup. '/feed?fields=id,created_time,from&limit=1&access_token=' . $token), true); /* Get Data Post*/
 
 $timelocpost = date('Y-m');
 $logpost= file_get_contents('logCMT.txt');
@@ -161,7 +161,7 @@ Hệ thống Bot Quảng Cáo tốt nhất hiện nay đó :)
 					'[icon]' => $getEmo,
 			    );
 			    $noidung =  strtr($comment, $tuychon);
-				request('https://graph.facebook.com/'. urlencode($idpost) .'/comments?attachment_url='. urlencode($hinhanh) .'&access_token='.$token.'&message='. urlencode($noidung) .'&method=post');
+				request('https://graph.facebook.com/v2.3/'. urlencode($idpost) .'/comments?attachment_url='. urlencode($hinhanh) .'&access_token='.$token.'&message='. urlencode($noidung) .'&method=post');
                 $luulog = fopen('logCMT.txt', 'a');
                 fwrite($luulog, $idpost . "\n");
                 fclose($luulog);
