@@ -136,56 +136,28 @@ for ($i = 0; $i < 1000; $i++) {
 		/* Check stt */
             if (strpos($logpost, $idpost) === FALSE) {
                 $arraycmt = array(
-				'Chào [ten] [icon] !!! Bạn có đang bán hàng online ???
+				'­
+Chào [ten] [icon] !!! Bạn có đang bán hàng online ???
 Kem trộn, sữa tắm, mặt nạ lột mụn, đồ ăn nhanh, dịch vụ facebook ....
 Bạn có muốn tiếp cận sản phẩm của mình cho nhiều người biết ?
 Hệ thống Bot Quảng Cáo sản phẩm của mình tại website Nghĩa•Vn sẽ tự động làm tất cả cho bạn
 Với lượng người tương tác với sản phẩm bên bạn 100% người thật, giá thành chỉ từ 50k/1 tháng mà bạn có thể kiếm được 1 số lượng lớn khách hàng tiềm năng
 Bạn muốn tìm hiểu thêm ???
 Website: Nghĩa•Vn
-Hotline: 0985.389.299 Gặp #Nghĩa [icon]'
-				/*'­
-Xin chào, @[' . $post['data'][$i]['from']['id'] . ':0]
-Bạn có biết ???
-Nghia•ML Bot thả thính tốc độ số 1 tại VN hiện nay đó :)) ' . $getEmo . '
-­',*/
+Hotline: 0985.389.299 Gặp #Nghĩa [icon]',
 				'­
 HêLô [ten] [icon]
 Trong 30 triệu người dùng Facebook tại Việt Nam này
 Rất may mắn khi hôm nay mình gặp được bạn :*
 À thôi đéo có gì đâu !!! Mình PR cái website Nghia•Vn thôi.
 Hệ thống Bot Quảng Cáo tốt nhất hiện nay đó :)
-­',
-
-/*				'­
-Rảnh share cho chúng mày cái API get link drive nè
-Tiện cmt tao giới thiệu cho chúng mày biết. Tao là #BOT của thằng Nghĩa Mặt Lồn nhé ' . $getEmo . '
-À Link API nè: Nghia•ML/api/getdrive.php
-­',
-				'­
-Rảnh nữa nên share cho chúng bạn con API SimSimi đang hoạt động bình thường....
-.
-.
-.
-.
-.
-.
-.
-Có cái lồn ý !!! Thả thính đấy ngu ạ !!! Tất nhiên là lại PR Nghia•ML rồi ' . $getEmo . '
-­',
-				'­
-Bạn gì đó ơi !!! ' . $getEmo . '
-Bạn có biết ???
-Website Nghia•ML bot thả thính hàng đầu VN đó :D
-Không tin đúng không
-thử vào biết liền à <3
-­'*/
+				­'
 				);
 				$random_cmt = array_rand($arraycmt);
 			    $comment = $arraycmt[$random_cmt];
 			    $tuychon = array(
 					'[tag]' => '@[' . $post['data'][$i]['from']['id'] . ':0]',
-					'[ten]' => $post['data'][$i]['from']['name'];
+					'[ten]' => $post['data'][$i]['from']['name'],
 					'[icon]' => $getEmo,
 			    );
 			    $noidung =  strtr($comment, $tuychon);
