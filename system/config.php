@@ -10,7 +10,7 @@ $home = 'http://nghia.ml';
 //***End***//
 $host = 'mysql5.gear.host';
 $username = 'sieubot';
-$password = 'Kc9Mfn~2~olT';
+$password = 'Ay4EA~Zl?Y8m';
 $dbname = 'sieubot';
 
 $connection = ($GLOBALS["___BMN_2312"] = mysqli_connect($host, $username, $password));
