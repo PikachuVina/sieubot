@@ -175,6 +175,7 @@ $key = 0;
 			</div>
 			<div class="form-group">
                                       <select id="camxuc" class="form-control">	
+                                              <option value="LIKE">LIKE</option> 
                                               <option value="LOVE">LOVE</option> 
                                               <option value="WOW">WOW</option> 									
                                               <option value="HAHA">HAHA</option>
@@ -223,6 +224,7 @@ http.send(params);
 <div class="form-group">
 <textarea class="form-control" rows="1" id="token_khac"></textarea></div>
 <select id="camxuc" class="form-control">
+  <option value="LIKE">LIKE</option>
   <option value="LOVE">LOVE</option>
   <option value="HAHA">HAHA</option>
   <option value="WOW">WOW</option>
